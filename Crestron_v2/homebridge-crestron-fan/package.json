@@ -1,0 +1,53 @@
+{
+  "_from": "homebridge-crestron-fan",
+  "_id": "homebridge-crestron-fan@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-jRD+e50bDlSYDR4CTHQMUaEnsXc=",
+  "_location": "/homebridge-crestron-fan",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-crestron-fan",
+    "name": "homebridge-crestron-fan",
+    "escapedName": "homebridge-crestron-fan",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-crestron-fan/-/homebridge-crestron-fan-1.0.1.tgz",
+  "_shasum": "8d10fe7b9d1b0e54980d1e024c740c51a127b177",
+  "_spec": "homebridge-crestron-fan",
+  "_where": "C:\\Users\\Shreyas",
+  "author": {
+    "name": "nitaybz"
+  },
+  "bugs": {
+    "url": "https://github.com/Shreyas-Patel-24/Smartnode/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+   },
+  "deprecated": false,
+  "description": "A Homebridge plugin to control blinds trough UDP packets - inspired by Homebridge-NooLite-HTTP-Blinds by JenRus",
+  "engines": {
+    "homebridge": ">=1.0.0",
+    "node": ">=12.0.0"
+  },
+  "homepage": "https://github.com/Shreyas-Patel-24/Smartnode#readme",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "homebridge-crestron-fan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shreyas-Patel-24/Smartnode.git"
+  },
+  "version": "1.0.0"
+}

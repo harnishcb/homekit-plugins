@@ -1,0 +1,92 @@
+Final List of Strings:
+
+Type - Switch 
+
+Trigger Light
+Switch:1:eventPowerState:1\x0D
+Switch:X:eventPowerState:0\x0D
+
+Feedback
+Switch:X:getPowerState
+
+--------------------------------
+
+Type - Light Dimmer 
+Lightbulb:1:eventPowerLevel:0\x0D
+Lightbulb:X:eventPowerLevel:100\x0D
+
+Feedback
+Lightbulb:X:getPowerLevel
+
+--------------------------------
+
+Type - CCT Light 
+LightCCT:1:eventPowerLevel:0\x0D
+LightCCT:X:eventPowerLevel:100\x0D
+LightCCT:1:eventColortemperature:2700\x0D
+LightCCT:X:eventColortemperature:6500\x0D
+
+Feedback
+LightCCT:X:getPowerLevel
+LightCCT:X:getColortemperature
+
+--------------------------------
+
+Type - Curtain 
+Curtain:1:eventTargetState:100\x0D
+Curtain:X:eventTargetState:0\x0D
+
+Feedback
+Curtain:X:getTargetState
+
+--------------------------------
+
+Type - Fan (with level)
+Fan:1:eventSpeedLevel:0\x0D
+Fan:X:eventSpeedLevel:100\x0D
+
+Feedback
+Fan:X:getSpeedLevel
+Fan:X:getFanMaxStep
+
+--------------------------------
+
+Type - AC
+AC:1:eventPowerState:1\x0D
+AC:X:eventPowerState:0\x0D
+AC:1:eventTemperature:18\x0D
+AC:X:eventTemperature:30\x0D
+
+AC:X:eventTempRangeMin:18\x0D
+AC:X:eventTempRangeMax:30\x0D
+
+
+Feedback
+AC:X:getPowerState
+AC:X:getTemperature
+AC:X:getTempRange
+
+--------------------------------
+
+
+Type- Keypad
+Keypad:X:eventScene:1\x0D
+Keypad:X:eventScene:2\x0D
+Keypad:X:eventScene:3\x0D
+Keypad:X:eventScene:4\x0D
+
+----------------------------------
+Lock: 
+
+Lock:1:eventLock:1\x0D
+Lock:X:eventLock:0\x0D
+
+Feedback
+Lock:X:getLock
+
+----------------------------------
+Sensor:
+
+Feedback
+OccupancySensor:X:getSensorState
+

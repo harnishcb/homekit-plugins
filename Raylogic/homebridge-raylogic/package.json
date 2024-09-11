@@ -1,0 +1,27 @@
+{
+  "name": "homebridge-raylogic",
+  "version": "1.0.0",
+  "description": "Raylogic plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CueHome/CueDesk.git"
+  },
+  "keywords": [
+    "homebridge-raylogic",
+    "homebridge-plugin"
+  ],
+ "engines": {
+    "homebridge": ">=1.0.0",
+    "node": ">=12.0.0"
+  },
+  "author": "SMP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CueHome/CueDesk/issues"
+  },
+  "homepage": "https://github.com/CueHome/CueDesk#readme"
+}

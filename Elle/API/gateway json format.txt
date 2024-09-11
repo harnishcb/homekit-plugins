@@ -1,0 +1,48 @@
+Operate Message format
+TOPIC : REEVA/BLE_MESH_GATEWAY/E8DB841E1A2A/C/1
+
+-> set onoff
+Message: {"addr":49152,"type":"onoff","onoff":1}
+-> set level
+Message: {"addr":49152,"type":"level","level":1}
+-> set lightness
+Message: {"addr":49152,"type":"lightness","lightness":100}
+-> set ctl
+Message: {"addr":49152,"type":"ctl","lightness":100,"temperature":800,"trans_time":60,"profile_type":1,"is_preset":1}
+-> set rgb
+Message: {"addr":49152,"type":"hsl","lightness":255,"hue":255,"saturation":255}
+
+Get Status Message format
+TOPIC : REEVA/BLE_MESH_GATEWAY/E8DB841E1A2A/S/1
+
+-> get onoff
+Message: {"addr":0053,"type":"onoff","no_node":8}
+-> get level
+Message: {"addr":0053,"type":"level","no_node":8}
+-> get lightness
+Message: {"addr":0053,"type":"lightness"}
+-> get ctl
+Message: {"addr":0053,"type":"ctl"}
+-> get rgb
+Message: {"addr":0053,"type":"hsl"}
+
+-> get status get vendor
+Message: {"addr":0053,"type":"vendor"}
+
+Device Response Message format
+TOPIC : REEVA/BLE_MESH_GATEWAY/E8DB841E1A2A/E/1
+
+-> for onoff
+Message: {"addr":49152,"type":"onoff","onoff":1}
+-> for level
+Message: {"addr":49152,"type":"level","level":1}
+-> for lightness
+Message: {"addr":49152,"type":"lightness","lightness":100}
+-> for ctl
+Message: {"addr":49152,"type":"ctl","lightness":100,"temperature":800}
+-> for rgb
+Message: {"addr":49152,"type":"hsl","lightness":255,"hue":255,"saturation":255}
+-> for vendor
+Message: {"addr": 349,"type": "vendor","vendor":"1111"}
+-> for Not responding
+Message: {"addr":49152,"type":"onoff","error":"Not responding"}

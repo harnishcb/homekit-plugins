@@ -1,0 +1,31 @@
+html,
+body {
+  height: 100%;
+}
+
+a {
+  font-weight: bold !important;
+  text-decoration: none !important;
+  color: var(--text-default) !important;
+}
+
+a:hover {
+  color: var(--cui-primary) !important;
+  text-decoration: none !important;
+}
+
+.text-primary {
+  color: var(--cui-primary-600) !important;
+}
+
+.text-default {
+  color: var(--cui-text-default) !important;
+}
+
+.text-muted {
+  color: var(--cui-text-hint) !important;
+}
+
+.text-font-disabled {
+  color: var(--cui-text-disabled) !important;
+}

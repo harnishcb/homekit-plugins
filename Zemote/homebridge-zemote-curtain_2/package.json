@@ -1,0 +1,61 @@
+{
+  "_from": "homebridge-zemote-curtain_2",
+  "_id": "homebridge-zemote-curtain_2@0.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-/jkxiPCcUxwDJIFRRrBfaS75l4dhRIX93yTkNeePxJ8JqNNa7hmBuo+xI7GVZTwXWU18lB5iKlcdzQIhd9KeFg==",
+  "_location": "/homebridge-zemote-curtain_2",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-zemote-curtain_2",
+    "name": "homebridge-zemote-curtain_2",
+    "escapedName": "homebridge-zemote-curtain_2",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-zemote-curtain_2/-/homebridge-zemote-curtain_2-0.1.0.tgz",
+  "_shasum": "ae9baef46a82656809e38a3ed3bce5803554caaf",
+  "_spec": "homebridge-zemote-curtain_2",
+  "_where": "/home/pi",
+  "author": {
+    "name": "Mathias Montini"
+  },
+  "bugs": {
+    "url": "https://github.com/MeMathias/homebridge-plugin/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "NovaGL"
+    },
+    {
+      "name": "David Parry"
+    }
+  ],
+  "dependencies": {
+    "polling-to-event": ">=2.0.2",
+    "request": "^2.65.0"
+  },
+  "deprecated": false,
+  "description": "http(s) plugin for Homebridge: https://github.com/nfarina/homebridge",
+  "engines": {
+    "homebridge": ">=0.2.0",
+    "node": ">=0.12.0"
+  },
+  "homepage": "https://github.com/MeMathias/homebridge-plugin#readme",
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "license": "ISC",
+  "name": "homebridge-zemote-curtain_2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeMathias/homebridge-plugin.git"
+  },
+  "version": "0.1.0"
+}

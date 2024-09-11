@@ -1,0 +1,55 @@
+{
+  "_from": "homebridge-toyama",
+  "_id": "homebridge-toyama@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha1-jRD+e50bDlSYDR4CTHQMUaEnsXc=",
+  "_location": "/homebridge-toyama",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-toyama",
+    "name": "homebridge-toyama",
+    "escapedName": "homebridge-toyama",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-toyama/-/homebridge-toyama-1.0.1.tgz",
+  "_shasum": "8d10fe7b9d1b0e54980d1e024c740c51a127b177",
+  "_spec": "homebridge-toyama",
+  "_where": "C:\\Users\\Shreyas",
+  "author": {
+    "name": "nitaybz"
+  },
+  "bugs": {
+    "url": "https://github.com/nitaybz/homebridge-toyama/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A Homebridge plugin to control blinds trough UDP packets - inspired by Homebridge-NooLite-HTTP-Blinds by JenRus",
+  "engines": {
+    "homebridge": ">=0.2.0",
+    "node": ">=0.12.0"
+  },
+  "homepage": "https://github.com/nitaybz/homebridge-toyama#readme",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge-blinds",
+    "homebridge",
+    "blinds",
+    "udp"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "homebridge-toyama",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitaybz/homebridge-toyama.git"
+  },
+  "version": "1.0.1"
+}

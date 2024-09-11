@@ -1,0 +1,53 @@
+{
+  "_from": "homebridge-hikvision-vdp",
+  "_id": "homebridge-hikvision-vdp@0.3.2",
+  "_inBundle": false,
+  "_integrity": "sha512-h+NShx5WPSgPJaRLg3zPAnLoFJbEeqJAIZtiphyWRfIfO5dXxF+a2Do4q7nNFaa1baSLCijyeStq2JsRObpIHg==",
+  "_location": "/homebridge-hikvision-vdp",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-hikvision-vdp",
+    "name": "homebridge-hikvision-vdp",
+    "escapedName": "homebridge-hikvision-vdp",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-hikvision-vdp/-/homebridge-hikvision-vdp-0.3.2.tgz",
+  "_shasum": "a34ee92c47009e910d3407e0ceec3c42fa709df1",
+  "_spec": "homebridge-hikvision-vdp",
+  "_where": "C:\\Users\\Shreyas Chipbucket",
+  "bugs": {
+    "url": "http://github.com/Samfox2/homebridge-hikvision-vdp/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "concat-stream": "^1.6.0",
+    "debug": "^2.2.0",
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^59.0.0",
+    "ip": "^1.1.3"
+  },
+  "deprecated": false,
+  "description": "Video doorbell plugin for homebridge: https://github.com/nfarina/homebridge",
+  "engines": {
+    "homebridge": ">=0.4.5",
+    "node": ">=5.0.0"
+  },
+  "homepage": "https://github.com/Samfox2/homebridge-hikvision-vdp#readme",
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "license": "ISC",
+  "name": "homebridge-hikvision-vdp",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Samfox2/homebridge-hikvision-vdp.git"
+  },
+  "version": "0.3.2"
+}

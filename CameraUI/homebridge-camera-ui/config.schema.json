@@ -1,0 +1,943 @@
+{
+  "pluginAlias": "CameraUI",
+  "pluginType": "platform",
+  "singular": true,
+  "customUi": true,
+  "footerDisplay": "For documentation please see [GitHub repository](https://github.com/SeydX/homebridge-camera-ui)",
+  "schema": {
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "default": "CameraUI"
+    },
+    "port": {
+      "title": "User Interface Port",
+      "type": "integer",
+      "description": "User Interface port",
+      "default": 8081
+    },
+    "atHomeSwitch": {
+      "title": "At Home Switch",
+      "type": "boolean",
+      "description": "Exposes a 'at home' switch to HomeKit to enable/disable at home for the interface settings within HomeKit."
+    },
+    "logLevel": {
+      "title": "Log Level",
+      "type": "string",
+      "description": "Show only defined log level (Info = Show informative messages during processing. This is in addition to warnings and errors - Debug: Show everything, including debugging information - Warning: Show only warnings and errors - Error: Show only errors)",
+      "default": "info",
+      "oneOf": [
+        {
+          "title": "Info (Default)",
+          "enum": ["info"]
+        },
+        {
+          "title": "Debug",
+          "enum": ["debug"]
+        },
+        {
+          "title": "Error",
+          "enum": ["error"]
+        },
+        {
+          "title": "Warning",
+          "enum": ["warn"]
+        }
+      ]
+    },
+    "mqtt": {
+      "title": "MQTT Server",
+      "type": "object",
+      "properties": {
+        "active": {
+          "title": "Active",
+          "description": "Activates MQTT Broker for MQTT-based automation. If not set, MQTT support is not started.",
+          "type": "boolean",
+          "default": false
+        },
+        "tls": {
+          "title": "MQTT TLS",
+          "type": "boolean",
+          "description": "Use TLS to connect to the MQTT broker.",
+          "condition": {
+            "functionBody": "return model.mqtt.active === true;"
+          }
+        },
+        "host": {
+          "title": "MQTT Server",
+          "type": "string",
+          "placeholder": "127.0.0.1",
+          "description": "Defines the hostname or IP of the MQTT broker to connect to for MQTT-based automation. If not set, MQTT support is not started.",
+          "condition": {
+            "functionBody": "return model.mqtt.active === true;"
+          }
+        },
+        "port": {
+          "title": "MQTT Port",
+          "type": "integer",
+          "placeholder": "1883",
+          "description": "The port of the MQTT broker.",
+          "condition": {
+            "functionBody": "return model.mqtt.active === true;"
+          }
+        },
+        "username": {
+          "title": "MQTT Username",
+          "type": "string",
+          "description": "The username used to connect to your MQTT broker. If not set, no authentication is used.",
+          "condition": {
+            "functionBody": "return model.mqtt.active === true;"
+          }
+        },
+        "password": {
+          "title": "MQTT Password",
+          "type": "string",
+          "description": "The password used to connect to your MQTT broker. If not set, no authentication is used.",
+          "condition": {
+            "functionBody": "return model.mqtt.active === true;"
+          }
+        }
+      }
+    },
+    "http": {
+      "title": "HTTP Server",
+      "type": "object",
+      "properties": {
+        "active": {
+          "title": "Active",
+          "description": "Activates HTTP Server for HTTP-based automation. If not set, HTTP support is not started.",
+          "type": "boolean",
+          "default": false
+        },
+        "port": {
+          "title": "HTTP Port",
+          "type": "integer",
+          "placeholder": "8080",
+          "description": "The port to listen on for HTTP-based automation. If not set, HTTP support is not started.",
+          "condition": {
+            "functionBody": "return model.http.active === true;"
+          }
+        },
+        "localhttp": {
+          "title": "HTTP Localhost Only",
+          "type": "boolean",
+          "description": "Only allow HTTP calls from localhost. Useful if using helper plugins that translate to HTTP.",
+          "condition": {
+            "functionBody": "return model.http.active === true;"
+          }
+        }
+      }
+    },
+    "smtp": {
+      "title": "SMTP Server",
+      "type": "object",
+      "properties": {
+        "active": {
+          "title": "Active",
+          "description": "Activates SMTP Server for Email-based automation. If not set, SMTP support is not started.",
+          "type": "boolean",
+          "default": false
+        },
+        "port": {
+          "title": "SMTP Port",
+          "type": "integer",
+          "placeholder": "2525",
+          "description": "The port to run the SMTP server on.",
+          "condition": {
+            "functionBody": "return model.smtp.active === true;"
+          }
+        },
+        "space_replace": {
+          "title": "Space replace",
+          "type": "string",
+          "description": "The character to replace a space with in the camera name portion of the email address.",
+          "condition": {
+            "functionBody": "return model.smtp.active === true;"
+          }
+        }
+      }
+    },
+    "ftp": {
+      "title": "FTP Server",
+      "type": "object",
+      "properties": {
+        "active": {
+          "title": "Active",
+          "description": "Activates FTP Server for FTP-based automation. If not set, FTP support is not started.",
+          "type": "boolean",
+          "default": false
+        },
+        "port": {
+          "title": "FTP Port",
+          "type": "integer",
+          "placeholder": "5050",
+          "description": "The port to run the FTP server on.",
+          "condition": {
+            "functionBody": "return model.ftp.active === true;"
+          }
+        },
+        "useFile": {
+          "title": "Use File Camera Name",
+          "description": "If enabled, the file will be used as a camera name instead of the directory",
+          "type": "boolean",
+          "condition": {
+            "functionBody": "return model.ftp.active === true;"
+          }
+        }
+      }
+    },
+    "ssl": {
+      "title": "SSL Setup",
+      "type": "object",
+      "properties": {
+        "active": {
+          "title": "Active",
+          "description": "Activates SSL (HTTPS) for the User Interface",
+          "type": "boolean",
+          "default": false
+        },
+        "key": {
+          "title": "Private key",
+          "type": "string",
+          "description": "Path to Private Key",
+          "condition": {
+            "functionBody": "return model.ssl.active === true;"
+          }
+        },
+        "cert": {
+          "title": "Certificate",
+          "type": "string",
+          "description": "Path to Certificate",
+          "condition": {
+            "functionBody": "return model.ssl.active === true;"
+          }
+        }
+      }
+    },
+    "options": {
+      "title": "Options",
+      "type": "object",
+      "properties": {
+        "videoProcessor": {
+          "title": "Video Processor",
+          "type": "string",
+          "placeholder": "ffmpeg",
+          "description": "Defines which video processor is used to decode and encode videos, must take the same parameters as FFmpeg. Common uses would be 'avconv' or the path to a custom-compiled version of FFmpeg. If not set, will use the included version of FFmpeg, or the version of FFmpeg installed on the system if no included version is available."
+        }
+      }
+    },
+    "cameras": {
+      "type": "array",
+      "items": {
+        "title": "Cameras",
+        "type": "object",
+        "properties": {
+          "disable": {
+            "title": "Disable",
+            "description": "Disables the camera and removes it from HomeKit.",
+            "type": "boolean"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "required": true,
+            "description": "Set the camera name for display in the Home app.",
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;"
+            }
+          },
+          "manufacturer": {
+            "name": "Manufacturer",
+            "type": "string",
+            "placeholder": "Homebridge",
+            "description": "Set the manufacturer name for display in the Home app."
+          },
+          "model": {
+            "name": "Model",
+            "type": "string",
+            "placeholder": "Camera FFmpeg",
+            "description": "Set the model for display in the Home app."
+          },
+          "serialNumber": {
+            "name": "Serial Number",
+            "type": "string",
+            "placeholder": "SerialNumber",
+            "description": "Set the serial number for display in the Home app."
+          },
+          "excludeSwitch": {
+            "title": "Exclude Switch",
+            "type": "boolean",
+            "description": "Exposes a 'exclude' switch to HomeKit to exclude/include the camera from the interface settings within HomeKit."
+          },
+          "privacySwitch": {
+            "title": "Privacy Switch",
+            "type": "boolean",
+            "description": "Exposes a 'privacyMode' switch to replace the camera feed with a privacy image in HomeKit."
+          },
+          "motion": {
+            "title": "Enable Motion Sensor",
+            "type": "boolean",
+            "description": "Exposes the motion sensor for this camera. This can be triggered with the dummy switches, MQTT messages, or via HTTP, depending on what features are enabled in the config.",
+            "default": true
+          },
+          "doorbell": {
+            "title": "Enable Doorbell",
+            "type": "boolean",
+            "description": "Exposes the doorbell device for this camera. This can be triggered with the dummy switches, MQTT messages, or via HTTP, depending on what features are enabled in the config."
+          },
+          "switches": {
+            "title": "Enable Dummy Switches",
+            "type": "boolean",
+            "description": "Enables dummy switches to trigger motion and/or doorbell, if either of those are enabled. When enabled there will be an additional switch that triggers the motion or doorbell event.",
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].motion === true || model.cameras[arrayIndices[0]].doorbell === true;"
+            }
+          },
+          "useInterfaceTimer": {
+            "title": "Interface Recording Timer",
+            "type": "boolean",
+            "description": "If enabled, the recording timer from camera.ui will be used for \"motionTimeout\"."
+          },
+          "motionTimeout": {
+            "title": "Automatic Motion Reset (Seconds)",
+            "type": "integer",
+            "placeholder": 15,
+            "minimum": 0,
+            "maximum": 170,
+            "description": "The number of seconds after triggering to reset the motion sensor. Set to 0 to disable resetting of motion trigger. This will also affect the interface timeout (when used with HKSV, this reflects the length of the recording)",
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].useInterfaceTimer === false"
+            }
+          },
+          "motionDelay": {
+            "title": "Motion Delay",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "The number of seconds to wait to trigger the motion sensor after a motion event is received from e.g. MQTT, SMTP, FTP or HTTP (this can be useful if you use an external motion sensor and the camera feed lags several seconds behind the event)",
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].useInterfaceTimer === false"
+            }
+          },
+          "motionDoorbell": {
+            "title": "Trigger Doorbell with Motion",
+            "type": "boolean",
+            "description": "Rings the doorbell when motion is activated. This allows for motion alerts to appear on Apple TVs.",
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].motion === true && model.cameras[arrayIndices[0]].doorbell === true;"
+            }
+          },
+          "unbridge": {
+            "title": "Unbridge Camera (Recommended)",
+            "type": "boolean",
+            "description": "Bridged cameras can cause slowdowns of the entire Homebridge instance. If unbridged, the camera will need to be added to HomeKit manually.",
+            "default": true,
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;"
+            }
+          },
+          "hsv": {
+            "title": "HomeKit Secure Video (HSV)",
+            "type": "boolean",
+            "description": "Enables HSV for the camera. This setting also affects the recording settings in the user interface. HSV requires a home hub and iCloud plan with at least 200GB of storage.",
+            "default": true,
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;"
+            }
+          },
+          "prebuffering": {
+            "title": "Prebuffering",
+            "type": "boolean",
+            "description": "Enables camera video prebuffering.",
+            "default": true,
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;"
+            }
+          },
+          "forcePrebuffering": {
+            "title": "Force Prebuffering",
+            "type": "boolean",
+            "description": "For cameras without a H264 stream. If set, camera.ui will start prebuffering with reencoding the stream. Caution: This will lead to a higher CPU load!",
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].prebuffering === true && model.cameras[arrayIndices[0]].disable !== true;"
+            }
+          },
+          "prebufferLength": {
+            "title": "Prebuffer Length",
+            "type": "integer",
+            "default": 4,
+            "minimum": 4,
+            "maximum": 8,
+            "description": "The length of the requested prebuffered video (s)",
+            "condition": {
+              "functionBody": "return model.cameras[arrayIndices[0]].prebuffering === true && model.cameras[arrayIndices[0]].disable !== true;"
+            }
+          },
+          "hksvConfig": {
+            "title": "HKSV Configuration",
+            "type": "object",
+            "properties": {
+              "source": {
+                "title": "Video Source",
+                "type": "string",
+                "placeholder": "-i rtsp://username:password@example.com:554",
+                "required": true,
+                "description": "Here you can set a custom video source for HKSV recordings only."
+              },
+              "maxWidth": {
+                "title": "Maximum Width",
+                "type": "integer",
+                "placeholder": 1280,
+                "multipleOf": 2,
+                "minimum": 0,
+                "description": "The maximum width used for HKSV. If not set, will use any size HomeKit requests (-s)."
+              },
+              "maxHeight": {
+                "title": "Maximum Height",
+                "type": "integer",
+                "placeholder": 720,
+                "multipleOf": 2,
+                "minimum": 0,
+                "description": "The maximum height used for HKSV. If not set, will use any size HomeKit requests (-s)."
+              },
+              "maxFPS": {
+                "title": "Maximum Framerate",
+                "type": "integer",
+                "placeholder": 25,
+                "minimum": 0,
+                "description": "The maximum frame rate used for HKSV. If not set, will use any framerate HomeKit requests (-r)."
+              },
+              "maxBitrate": {
+                "title": "Maximum Bitrate",
+                "type": "integer",
+                "placeholder": 1024,
+                "minimum": 0,
+                "description": "The maximum bitrate used HKSV, in kbit/s. If not set, will use any bitrate HomeKit requests (-b:v)."
+              },
+              "vcodec": {
+                "title": "Video Codec",
+                "type": "string",
+                "placeholder": "copy",
+                "typeahead": {
+                  "source": ["libx264", "h264_omx", "h264_videotoolbox", "copy"]
+                },
+                "description": "Set the codec used for encoding video for HKSV, must be H.264-based. You can change to a hardware accelerated video codec with this option, if one is available (-vcodec)."
+              },
+              "acodec": {
+                "title": "Audio Codec",
+                "type": "string",
+                "placeholder": "libfdk_aac",
+                "typeahead": {
+                  "source": ["libfdk_aac", "copy"]
+                },
+                "description": "Set the codec used for encoding audio for HKSV, must be AAC-based (-acodec)."
+              },
+              "audio": {
+                "title": "Enable Audio",
+                "type": "boolean",
+                "description": "Enables audio for HKSV recordings."
+              },
+              "encoderOptions": {
+                "title": "Encoder Options",
+                "type": "string",
+                "description": "Options to be passed to the video encoder for the HKSV recording process."
+              }
+            }
+          },
+          "videoConfig": {
+            "title": "Video Configuration",
+            "type": "object",
+            "properties": {
+              "source": {
+                "title": "Video Source",
+                "type": "string",
+                "placeholder": "-i rtsp://username:password@example.com:554",
+                "required": true,
+                "description": "FFmpeg options on where to find and how to decode your camera's video stream. The most basic form is '-i' followed by your camera's URL."
+              },
+              "subSource": {
+                "title": "Video Substream Source",
+                "type": "string",
+                "description": "Low Resolution Substream. FFmpeg options on where to find and how to decode your camera's video substream. The most basic form is '-i' followed by your camera's URL. The substream will be used to probe the stream or for motion detection through video analysis."
+              },
+              "stillImageSource": {
+                "title": "Still Image Source",
+                "type": "string",
+                "description": "If your camera also provides a URL for a still image, that can be defined here with the same syntax as 'source'. If not set, the plugin will grab one frame from 'source'."
+              },
+              "readRate": {
+                "title": "Read Rate",
+                "type": "boolean",
+                "description": "Read input at native frame rate (-re)."
+              },
+              "rtspTransport": {
+                "title": "RTSP Transport",
+                "placeholder": "tcp",
+                "type": "string",
+                "oneOf": [
+                  {
+                    "title": "udp",
+                    "enum": ["udp"]
+                  },
+                  {
+                    "title": "tcp",
+                    "enum": ["tcp"]
+                  },
+                  {
+                    "title": "http",
+                    "enum": ["http"]
+                  },
+                  {
+                    "title": "udp_multicast",
+                    "enum": ["udp_multicast"]
+                  }
+                ],
+                "description": "Set RTSP transport protocols (-rtsp_transport)"
+              },
+              "analyzeDuration": {
+                "title": "Analyze Duration",
+                "type": "integer",
+                "description": "Specify how many microseconds are analyzed to probe the input. A higher value will enable detecting more accurate information, but will increase latency. It defaults to 5,000,000 microseconds = 5 seconds (-analyzeduration)."
+              },
+              "probeSize": {
+                "title": "Probe Size",
+                "type": "integer",
+                "description": "Set probing size in bytes, i.e. the size of the data to analyze to get stream information. A higher value will enable detecting more information in case it is dispersed into the stream, but will increase latency. Must be an integer not lesser than 32. It is 5000000 by default (-probesize)."
+              },
+              "reorderQueueSize": {
+                "title": "Reorder Queue Size (Jitter buffer size)",
+                "type": "integer",
+                "description": "Packets may be received out of order, so before they can be passed onwards, they need to be reordered. Default jitter buffer size is 500. This option allows you to specify it manually. Higher values will lead to greater latency. Only applicable for reception over UDP (-reorder_queue_size)."
+              },
+              "maxDelay": {
+                "title": "Max Delay",
+                "type": "integer",
+                "description": "When receiving data over UDP, the demuxer tries to reorder received packets (since they may arrive out of order, or packets may get lost totally). This can be disabled by setting the maximum demuxing delay to zero (-max_delay)."
+              },
+              "returnAudioTarget": {
+                "title": "Two-way Audio Target (EXPERIMENTAL)",
+                "type": "string",
+                "description": "The FFmpeg output command for directing audio back to a two-way capable camera. This feature is still in development and a configuration that works today may not work in the future."
+              },
+              "maxStreams": {
+                "title": "Maximum Concurrent Streams",
+                "type": "integer",
+                "minimum": 1,
+                "description": "The maximum number of streams that will be allowed at once to this camera."
+              },
+              "maxWidth": {
+                "title": "Maximum Width",
+                "type": "integer",
+                "placeholder": 1280,
+                "multipleOf": 2,
+                "minimum": 0,
+                "description": "The maximum width used for video stream. If set to 0, the resolution of the source is used. If not set, will use any size HomeKit requests (-s)."
+              },
+              "maxHeight": {
+                "title": "Maximum Height",
+                "type": "integer",
+                "placeholder": 720,
+                "multipleOf": 2,
+                "minimum": 0,
+                "description": "The maximum height used for video stream. If set to 0, the resolution of the source is used. If not set, will use any size HomeKit requests (-s)."
+              },
+              "maxFPS": {
+                "title": "Maximum Framerate",
+                "type": "integer",
+                "placeholder": 20,
+                "minimum": 0,
+                "description": "The maximum frame rate used for video streamed to HomeKit. If set to 0, the framerate of the source is used. If not set, will use any framerate HomeKit requests (-r)."
+              },
+              "maxBitrate": {
+                "title": "Maximum Bitrate",
+                "type": "integer",
+                "placeholder": 299,
+                "minimum": 0,
+                "description": "The maximum bitrate used for video stream, in kbit/s. If not set, will use any bitrate HomeKit requests (-b:v)."
+              },
+              "forceMax": {
+                "title": "Force Maximums",
+                "type": "boolean",
+                "description": "If set, the settings requested by HomeKit will be overridden with any 'maximum' values defined in this config."
+              },
+              "vcodec": {
+                "title": "Video Codec",
+                "type": "string",
+                "default": "copy",
+                "typeahead": {
+                  "source": ["libx264", "h264_omx", "h264_videotoolbox", "copy"]
+                },
+                "description": "Set the codec used for encoding video sent to HomeKit, must be H.264-based. You can change to a hardware accelerated video codec with this option, if one is available (-vcodec)."
+              },
+              "acodec": {
+                "title": "Audio Codec",
+                "type": "string",
+                "default": "libfdk_aac",
+                "typeahead": {
+                  "source": ["libfdk_aac", "copy"]
+                },
+                "description": "Set the codec used for encoding audio sent to HomeKit for HSV, must be AAC-based (-acodec)."
+              },
+              "packetSize": {
+                "title": "Packet Size",
+                "type": "number",
+                "placeholder": 1316,
+                "multipleOf": 188,
+                "minimum": 188,
+                "description": "If audio or video is choppy try a smaller value."
+              },
+              "stimeout": {
+                "title": "Socket Timeout",
+                "type": "number",
+                "description": "Socket TCP I/O timeout in seconds. If you have problems with hanging FFmpeg processes in the background, you can enter any value here to stop the process automatically after the entered time, if no response comes (-stimeout).",
+                "minimum": 0,
+                "maximum": 60
+              },
+              "videoFilter": {
+                "title": "Additional Video Filters",
+                "type": "string",
+                "description": "Comma-delimited list of additional video filters for FFmpeg to run on the video. If 'none' is included, the default video filters are disabled (-filter:v)."
+              },
+              "encoderOptions": {
+                "title": "Encoder Options",
+                "type": "string",
+                "description": "Options to be passed to the video encoder."
+              },
+              "mapvideo": {
+                "type": "string",
+                "title": "Video Stream",
+                "description": "Selects the stream used for video (-map)."
+              },
+              "mapaudio": {
+                "type": "string",
+                "title": "Audio Stream",
+                "description": "Selects the stream used for audio (-map)."
+              },
+              "audio": {
+                "title": "Enable Audio",
+                "type": "boolean",
+                "description": "Enables audio streaming from camera.",
+                "default": false
+              },
+              "debug": {
+                "title": "FFmpeg Debug Logging",
+                "type": "boolean",
+                "description": "Includes debugging output from the main FFmpeg process in the Homebridge log."
+              },
+              "debugReturn": {
+                "title": "Two-way FFmpeg Debug Logging",
+                "type": "boolean",
+                "description": "Includes debugging output from the FFmpeg process used for two-way audio in the Homebridge log."
+              }
+            }
+          },
+          "mqtt": {
+            "title": "MQTT Configuration",
+            "type": "object",
+            "properties": {
+              "motionTopic": {
+                "title": "Motion Topic Prefix",
+                "type": "string",
+                "description": "The MQTT topic to watch for motion alerts. The topic (prefix/suffix) should be unique, it will be used to assign the motion detected message to the desired camera."
+              },
+              "motionMessage": {
+                "title": "Motion Message",
+                "type": "string",
+                "placeholder": "ON",
+                "description": "The message to watch for to trigger motion alerts."
+              },
+              "motionResetTopic": {
+                "title": "Motion Reset Topic",
+                "type": "string",
+                "description": "The MQTT topic to watch for motion resets. The topic (prefix/suffix) should be unique, it will be used to assign the reset motion message to the desired camera."
+              },
+              "motionResetMessage": {
+                "title": "Motion Reset Message",
+                "type": "string",
+                "placeholder": "OFF",
+                "description": "The message to watch for to trigger motion resets."
+              },
+              "doorbellTopic": {
+                "title": "Doorbell Topic",
+                "type": "string",
+                "description": "The MQTT topic to watch for doorbell alerts. The topic (prefix/suffix) should be unique, it will be used to assign the doorbell message to the desired camera."
+              },
+              "doorbellMessage": {
+                "title": "Doorbell Message",
+                "type": "string",
+                "placeholder": "ON",
+                "description": "The message to watch for to trigger doorbell alerts. Will use the name of the camera if blank."
+              }
+            }
+          },
+          "smtp": {
+            "title": "SMTP Configuration",
+            "type": "object",
+            "properties": {
+              "email": {
+                "title": "Email To Address",
+                "type": "string",
+                "description": "The email to address (without everything after @) to be assigned to this camera (e.g. my test camera. If not defined, the camera name will be used)"
+              },
+              "from": {
+                "title": "Email From Address",
+                "type": "string",
+                "description": "The email from address (without everything after @) to be assigned to this camera (e.g. my test camera)"
+              },
+              "body": {
+                "title": "Email Body Lookup",
+                "type": "string",
+                "description": "If camera.ui can't find out the name of the camera by the email address, you can enter a term here so that camera.ui can search the text content of the email for this term and thus assign the camera"
+              }
+            }
+          },
+          "videoanalysis": {
+            "title": "Video Analysis Configuration",
+            "type": "object",
+            "properties": {
+              "active": {
+                "title": "Active",
+                "description": "Activates Video Analysis for motion detection (a low resolution sub stream is preferred or prebuffering enabled)",
+                "type": "boolean",
+                "default": true
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "layout": [
+    {
+      "type": "section",
+      "title": "Interface",
+      "expandable": true,
+      "expanded": false,
+      "orderable": false,
+      "items": [
+        "port",
+        "logLevel",
+        "atHomeSwitch",
+        {
+          "key": "ssl",
+          "title": "SSL Certificate",
+          "type": "array",
+          "orderable": false,
+          "items": ["ssl.active", "ssl.key", "ssl.cert"]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Cameras",
+      "expandable": true,
+      "expanded": false,
+      "items": [
+        {
+          "key": "cameras",
+          "type": "tabarray",
+          "title": "{{ value.name || 'new Camera' }}",
+          "items": [
+            "cameras[].disable",
+            "cameras[].name",
+
+            "cameras[].unbridge",
+            "cameras[].hsv",
+            "cameras[].prebuffering",
+            "cameras[].forcePrebuffering",
+            "cameras[].prebufferLength",
+
+            {
+              "key": "cameras[]",
+              "type": "section",
+              "title": "Branding",
+              "expandable": true,
+              "expanded": false,
+              "items": ["cameras[].manufacturer", "cameras[].model", "cameras[].serialNumber"],
+              "condition": {
+                "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;"
+              }
+            },
+            {
+              "key": "cameras[]",
+              "type": "section",
+              "title": "Stream Configuration",
+              "expandable": true,
+              "expanded": false,
+              "items": [
+                "cameras[].videoConfig.source",
+                "cameras[].videoConfig.subSource",
+                "cameras[].videoConfig.stillImageSource",
+                "cameras[].videoConfig.maxStreams",
+                "cameras[].videoConfig.maxWidth",
+                "cameras[].videoConfig.maxHeight",
+                "cameras[].videoConfig.maxFPS",
+                "cameras[].videoConfig.maxBitrate",
+                "cameras[].videoConfig.audio",
+                "cameras[].videoConfig.forceMax",
+                "cameras[].videoConfig.debug"
+              ],
+              "condition": {
+                "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;"
+              }
+            },
+            {
+              "key": "cameras[]",
+              "type": "section",
+              "title": "Advanced Stream Configuration",
+              "expandable": true,
+              "expanded": false,
+              "items": [
+                "cameras[].videoConfig.readRate",
+                "cameras[].videoConfig.acodec",
+                "cameras[].videoConfig.vcodec",
+                "cameras[].videoConfig.rtspTransport",
+                "cameras[].videoConfig.analyzeDuration",
+                "cameras[].videoConfig.probeSize",
+                "cameras[].videoConfig.reorderQueueSize",
+                "cameras[].videoConfig.maxDelay",
+                "cameras[].videoConfig.stimeout",
+                "cameras[].videoConfig.packetSize",
+                "cameras[].videoConfig.mapvideo",
+                "cameras[].videoConfig.mapaudio",
+                "cameras[].videoConfig.videoFilter",
+                "cameras[].videoConfig.encoderOptions",
+                "cameras[].videoConfig.returnAudioTarget",
+                "cameras[].videoConfig.debugReturn"
+              ],
+              "condition": {
+                "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;"
+              }
+            },
+            {
+              "key": "cameras[]",
+              "type": "section",
+              "title": "HKSV Configuration",
+              "expandable": true,
+              "expanded": false,
+              "items": [
+                "cameras[].hksvConfig.source",
+                "cameras[].hksvConfig.maxWidth",
+                "cameras[].hksvConfig.maxHeight",
+                "cameras[].hksvConfig.maxFPS",
+                "cameras[].hksvConfig.maxBitrate",
+                "cameras[].hksvConfig.acodec",
+                "cameras[].hksvConfig.vcodec",
+                "cameras[].hksvConfig.encoderOptions",
+                "cameras[].hksvConfig.audio"
+              ],
+              "condition": {
+                "functionBody": "return model.cameras[arrayIndices[0]].hsv === true && model.cameras[arrayIndices[0]].disable !== true;"
+              }
+            },
+            {
+              "key": "cameras[]",
+              "type": "section",
+              "title": "Sensors and Switches",
+              "expandable": true,
+              "expanded": false,
+              "items": [
+                "cameras[].motion",
+                "cameras[].doorbell",
+                "cameras[].switches",
+                "cameras[].useInterfaceTimer",
+                "cameras[].motionTimeout",
+                "cameras[].motionDelay",
+                "cameras[].motionDoorbell",
+                "cameras[].excludeSwitch",
+                "cameras[].privacySwitch"
+              ],
+              "condition": {
+                "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;"
+              }
+            },
+            {
+              "key": "cameras[]",
+              "type": "section",
+              "title": "MQTT Options",
+              "expandable": true,
+              "expanded": false,
+              "items": [
+                "cameras[].mqtt.motionTopic",
+                "cameras[].mqtt.motionMessage",
+                "cameras[].mqtt.motionResetTopic",
+                "cameras[].mqtt.motionResetMessage",
+                "cameras[].mqtt.doorbellTopic",
+                "cameras[].mqtt.doorbellMessage"
+              ],
+              "condition": {
+                "functionBody": "return model.mqtt.active === true && model.cameras[arrayIndices[0]].disable !== true;;"
+              }
+            },
+            {
+              "key": "cameras[]",
+              "type": "section",
+              "title": "SMTP Options",
+              "expandable": true,
+              "expanded": false,
+              "items": ["cameras[].smtp.email", "cameras[].smtp.from", "cameras[].smtp.body"],
+              "condition": {
+                "functionBody": "return model.smtp.active === true && model.cameras[arrayIndices[0]].disable !== true;;"
+              }
+            },
+            {
+              "key": "cameras[]",
+              "type": "section",
+              "title": "Video Analysis",
+              "expandable": true,
+              "expanded": false,
+              "items": ["cameras[].videoanalysis.active"],
+              "condition": {
+                "functionBody": "return model.cameras[arrayIndices[0]].disable !== true;;"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "options",
+      "type": "object",
+      "orderable": false,
+      "expandable": true,
+      "expanded": false,
+      "items": ["options.videoProcessor"]
+    },
+    {
+      "key": "mqtt",
+      "name": "MQTT Broker",
+      "type": "object",
+      "orderable": false,
+      "expandable": true,
+      "expanded": false,
+      "items": ["mqtt.active", "mqtt.tls", "mqtt.host", "mqtt.port", "mqtt.username", "mqtt.password"]
+    },
+    {
+      "key": "http",
+      "name": "HTTP Server",
+      "type": "object",
+      "orderable": false,
+      "expandable": true,
+      "expanded": false,
+      "items": ["http.active", "http.port", "http.localhttp"]
+    },
+    {
+      "key": "smtp",
+      "name": "SMTP Server",
+      "type": "object",
+      "orderable": false,
+      "expandable": true,
+      "expanded": false,
+      "items": ["smtp.active", "smtp.port", "smtp.space_replace"]
+    },
+    {
+      "key": "ftp",
+      "name": "FTP Server",
+      "type": "object",
+      "orderable": false,
+      "expandable": true,
+      "expanded": false,
+      "items": ["ftp.active", "ftp.port", "ftp.useFile"]
+    }
+  ]
+}

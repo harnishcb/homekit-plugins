@@ -1,0 +1,1381 @@
+{
+  "pluginAlias": "LgWebOsTv",
+  "pluginType": "platform",
+  "singular": true,
+  "fixArrays": true,
+  "headerDisplay": "This plugin works with Xbox game Consoles and are exposed to HomeKit as separate accessories and each needs to be manually paired.\n\n1. Open the Home <img src='https://user-images.githubusercontent.com/3979615/78010622-4ea1d380-738e-11ea-8a17-e6a465eeec35.png' height='16.42px'> app on your device.\n2. Tap the <img src='https://user-images.githubusercontent.com/3979615/78010869-9aed1380-738e-11ea-9644-9f46b3633026.png' height='16.42px'>.\n3. Tap *Add Accessory*, and select *I Don't Have a Code or Cannot Scan* or *More Options*.\n4. Select Your accessory.\n5. Enter the Homebridge PIN or scan the QR code, this can be found in Homebridge UI or Homebridge logs.\n6. Complete the accessory setup.",
+  "footerDisplay": "For documentation please see [GitHub repository](https://github.com/grzegorz914/homebridge-lgwebos-tv).",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "devices": {
+        "type": "array",
+        "items": {
+          "title": "Device",
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "Name",
+              "type": "string",
+              "placeholder": "LG TV",
+              "required": true
+            },
+            "host": {
+              "title": "IP/Hostname",
+              "type": "string",
+              "placeholder": "192.168.1.8",
+              "format": "hostname",
+              "required": true
+            },
+            "mac": {
+              "title": "Address Mac",
+              "type": "string",
+              "placeholder": "ab:cd:ef:fe:dc:ba",
+              "required": true
+            },
+            "getInputsFromDevice": {
+              "title": "Load Inputs From Device",
+              "type": "boolean",
+              "default": false,
+              "description": "This function get all available inputs direct from device, manually configured inputs will be skipped.",
+              "required": false
+            },
+            "filterSystemApps": {
+              "title": "Hide System Apps",
+              "type": "boolean",
+              "default": false,
+              "description": "If enabled, all System Apps will not be displayed on the list of inputs.",
+              "required": false,
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].getInputsFromDevice === true"
+              }
+            },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "title": "Input",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "title": "Name",
+                    "type": "string",
+                    "placeholder": "Name",
+                    "description": "Here set Your own name.",
+                    "required": true
+                  },
+                  "reference": {
+                    "title": "Reference",
+                    "type": "string",
+                    "placeholder": "Input/App, Channel reference",
+                    "description": "Here set the Input/App, Channel reference.",
+                    "required": true
+                  },
+                  "mode": {
+                    "title": "Mode",
+                    "type": "integer",
+                    "description": "Here select the function mode.",
+                    "oneOf": [
+                      {
+                        "title": "Input/App",
+                        "enum": [
+                          0
+                        ]
+                      },
+                      {
+                        "title": "Live TV Channel",
+                        "enum": [
+                          1
+                        ]
+                      }
+                    ],
+                    "required": true
+                  }
+                }
+              }
+            },
+            "buttons": {
+              "type": "array",
+              "items": {
+                "title": "Button",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "title": "Name",
+                    "type": "string",
+                    "placeholder": "Name",
+                    "description": "Here set Your own name.",
+                    "required": false
+                  },
+                  "mode": {
+                    "title": "Mode",
+                    "type": "integer",
+                    "description": "Here select the function mode.",
+                    "oneOf": [
+                      {
+                        "title": "Input/App",
+                        "enum": [
+                          0
+                        ]
+                      },
+                      {
+                        "title": "Live TV Channel",
+                        "enum": [
+                          1
+                        ]
+                      },
+                      {
+                        "title": "Remote Control",
+                        "enum": [
+                          2
+                        ]
+                      }
+                    ],
+                    "required": true
+                  },
+                  "reference": {
+                    "title": "Reference",
+                    "type": "string",
+                    "placeholder": "Input/App, Channel reference",
+                    "description": "Here set the Input/App or Channel reference.",
+                    "required": false
+                  },
+                  "command": {
+                    "title": "RC Command",
+                    "type": "string",
+                    "oneOf": [
+                      {
+                        "title": "0",
+                        "enum": [
+                          "0"
+                        ]
+                      },
+                      {
+                        "title": "1",
+                        "enum": [
+                          "1"
+                        ]
+                      },
+                      {
+                        "title": "2",
+                        "enum": [
+                          "2"
+                        ]
+                      },
+                      {
+                        "title": "3",
+                        "enum": [
+                          "3"
+                        ]
+                      },
+                      {
+                        "title": "4",
+                        "enum": [
+                          "4"
+                        ]
+                      },
+                      {
+                        "title": "5",
+                        "enum": [
+                          "5"
+                        ]
+                      },
+                      {
+                        "title": "6",
+                        "enum": [
+                          "6"
+                        ]
+                      },
+                      {
+                        "title": "7",
+                        "enum": [
+                          "7"
+                        ]
+                      },
+                      {
+                        "title": "8",
+                        "enum": [
+                          "8"
+                        ]
+                      },
+                      {
+                        "title": "9",
+                        "enum": [
+                          "9"
+                        ]
+                      },
+                      {
+                        "title": "Power",
+                        "enum": [
+                          "POWER"
+                        ]
+                      },
+                      {
+                        "title": "Volume Up",
+                        "enum": [
+                          "VOLUMEUP"
+                        ]
+                      },
+                      {
+                        "title": "Volume Down",
+                        "enum": [
+                          "VOLUMEDOWN"
+                        ]
+                      },
+                      {
+                        "title": "Mute",
+                        "enum": [
+                          "MUTE"
+                        ]
+                      },
+                      {
+                        "title": "Channel Up",
+                        "enum": [
+                          "CHANNELUP"
+                        ]
+                      },
+                      {
+                        "title": "Channel Down",
+                        "enum": [
+                          "CHANNELDOWN"
+                        ]
+                      },
+                      {
+                        "title": "Home",
+                        "enum": [
+                          "HOME"
+                        ]
+                      },
+                      {
+                        "title": "Menu",
+                        "enum": [
+                          "MENU"
+                        ]
+                      },
+                      {
+                        "title": "Q Menu",
+                        "enum": [
+                          "QMENU"
+                        ]
+                      },
+                      {
+                        "title": "Menu Up",
+                        "enum": [
+                          "UP"
+                        ]
+                      },
+                      {
+                        "title": "Menu Down",
+                        "enum": [
+                          "DOWN"
+                        ]
+                      },
+                      {
+                        "title": "Menu Left",
+                        "enum": [
+                          "LEFT"
+                        ]
+                      },
+                      {
+                        "title": "Menu Right",
+                        "enum": [
+                          "RIGHT"
+                        ]
+                      },
+                      {
+                        "title": "Menu OK",
+                        "enum": [
+                          "ENTER"
+                        ]
+                      },
+                      {
+                        "title": "Back",
+                        "enum": [
+                          "BACK"
+                        ]
+                      },
+                      {
+                        "title": "Exit",
+                        "enum": [
+                          "EXIT"
+                        ]
+                      },
+                      {
+                        "title": "Eject",
+                        "enum": [
+                          "EJECT"
+                        ]
+                      },
+                      {
+                        "title": "Info",
+                        "enum": [
+                          "INFO"
+                        ]
+                      },
+                      {
+                        "title": "Play",
+                        "enum": [
+                          "PLAY"
+                        ]
+                      },
+                      {
+                        "title": "Pause",
+                        "enum": [
+                          "PAUSE"
+                        ]
+                      },
+                      {
+                        "title": "Record",
+                        "enum": [
+                          "RECORD"
+                        ]
+                      },
+                      {
+                        "title": "Fast Forward",
+                        "enum": [
+                          "FASTFORWARD"
+                        ]
+                      },
+                      {
+                        "title": "Rewind",
+                        "enum": [
+                          "REWIND"
+                        ]
+                      },
+                      {
+                        "title": "Red",
+                        "enum": [
+                          "RED"
+                        ]
+                      },
+                      {
+                        "title": "Green",
+                        "enum": [
+                          "GREEN"
+                        ]
+                      },
+                      {
+                        "title": "Yellow",
+                        "enum": [
+                          "YELLOW"
+                        ]
+                      },
+                      {
+                        "title": "Blue",
+                        "enum": [
+                          "BLUE"
+                        ]
+                      },
+                      {
+                        "title": "Live Zoom",
+                        "enum": [
+                          "LIVE_ZOOM"
+                        ]
+                      },
+                      {
+                        "title": "Magnifier Zoom",
+                        "enum": [
+                          "MAGNIFIER_ZOOM"
+                        ]
+                      },
+                      {
+                        "title": "3D Mode",
+                        "enum": [
+                          "3D_MODE"
+                        ]
+                      },
+                      {
+                        "title": "List",
+                        "enum": [
+                          "LIST"
+                        ]
+                      },
+                      {
+                        "title": "AD",
+                        "enum": [
+                          "AD"
+                        ]
+                      },
+                      {
+                        "title": "Dash",
+                        "enum": [
+                          "DASH"
+                        ]
+                      },
+                      {
+                        "title": "Favorites",
+                        "enum": [
+                          "FAVORITES"
+                        ]
+                      },
+                      {
+                        "title": "Program",
+                        "enum": [
+                          "PROGRAM"
+                        ]
+                      },
+                      {
+                        "title": "My Apps",
+                        "enum": [
+                          "MYAPPS"
+                        ]
+                      },
+                      {
+                        "title": "Aspect Ratio",
+                        "enum": [
+                          "ASPECT_RATIO"
+                        ]
+                      },
+                      {
+                        "title": "Screen Remot",
+                        "enum": [
+                          "SCREEN_REMOT"
+                        ]
+                      },
+                      {
+                        "title": "Recent",
+                        "enum": [
+                          "RECENT"
+                        ]
+                      },
+                      {
+                        "title": "SAP",
+                        "enum": [
+                          "SAP"
+                        ]
+                      },
+                      {
+                        "title": "CC",
+                        "enum": [
+                          "CC"
+                        ]
+                      },
+                      {
+                        "title": "Click",
+                        "enum": [
+                          "CLICK"
+                        ]
+                      },
+                      {
+                        "title": "Teletext",
+                        "enum": [
+                          "TELETEXT"
+                        ]
+                      },
+                      {
+                        "title": "Text Option",
+                        "enum": [
+                          "TEXTOPTION"
+                        ]
+                      },
+                      {
+                        "title": "BML Data",
+                        "enum": [
+                          "BML_DATA"
+                        ]
+                      },
+                      {
+                        "title": "3 Digital Input",
+                        "enum": [
+                          "3DIGIT_INPUT"
+                        ]
+                      }
+                    ],
+                    "description": "Here select the remote control command.",
+                    "required": true
+                  },
+                  "displayType": {
+                    "title": "Display Type",
+                    "type": "integer",
+                    "oneOf": [
+                      {
+                        "title": "None/Disabled",
+                        "enum": [
+                          -1
+                        ]
+                      },
+                      {
+                        "title": "Outlet",
+                        "enum": [
+                          0
+                        ]
+                      },
+                      {
+                        "title": "Switch",
+                        "enum": [
+                          1
+                        ]
+                      }
+                    ],
+                    "description": "Here select display type in HomeKit app.",
+                    "required": true
+                  }
+                }
+              }
+            },
+            "sensorPower": {
+              "title": "Power",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Power as a Motion Sensor to use with automations.",
+              "required": false
+            },
+            "sensorPixelRefresh": {
+              "title": "Pixel Refresh",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Pixel Refresh as a Motion Sensor to use with automations.",
+              "required": false
+            },
+            "sensorVolume": {
+              "title": "Volume",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Volume as a Motion Sensor to use with automations.",
+              "required": false
+            },
+            "sensorMute": {
+              "title": "Mute",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Mute as a Motion Sensor to use with automations.",
+              "required": false
+            },
+            "sensorInput": {
+              "title": "Input",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Input as a Motion Sensor to use with automations.",
+              "required": false
+            },
+            "sensorChannel": {
+              "title": "Channel",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Channel as a Motion Sensor to use with automations.",
+              "required": false
+            },
+            "sensorSoundMode": {
+              "title": "Sound Mode",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Sound Mode as a Motion Sensor to use with automations, only for webOS >= 6.0.",
+              "required": false
+            },
+            "sensorPictureMode": {
+              "title": "Picture Mode",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Picture Mode as a Motion Sensor to use with automations, only for webOS >= 4.0.",
+              "required": false
+            },
+            "sensorScreenOnOff": {
+              "title": "Screen On/Off",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Screen ON/OFF as a Motion Sensor to use with automations.",
+              "required": false
+            },
+            "sensorScreenSaver": {
+              "title": "Screen Saver",
+              "type": "boolean",
+              "default": false,
+              "description": "This expose Screen Saver as a Motion Sensor to use with automations.",
+              "required": false
+            },
+            "sensorInputs": {
+              "type": "array",
+              "items": {
+                "title": "Inputs",
+                "type": "object",
+                "description": "Here create Input/App Sensors based on reference, sensor will active if switch to it.",
+                "properties": {
+                  "name": {
+                    "title": "Name",
+                    "type": "string",
+                    "placeholder": "Name",
+                    "description": "Here set Your own name.",
+                    "required": true
+                  },
+                  "reference": {
+                    "title": "Reference",
+                    "type": "string",
+                    "placeholder": "Input/App reference",
+                    "description": "Here set the Input/App reference.",
+                    "required": true
+                  },
+                  "displayType": {
+                    "title": "Type",
+                    "type": "integer",
+                    "oneOf": [
+                      {
+                        "title": "None/Disabled",
+                        "enum": [
+                          -1
+                        ]
+                      },
+                      {
+                        "title": "Motion Sensor",
+                        "enum": [
+                          0
+                        ]
+                      },
+                      {
+                        "title": "Occupancy Sensor",
+                        "enum": [
+                          1
+                        ]
+                      },
+                      {
+                        "title": "Contact Sensor",
+                        "enum": [
+                          2
+                        ]
+                      }
+                    ],
+                    "description": "Here select sensor type to be exposed in HomeKit app.",
+                    "required": true
+                  }
+                }
+              }
+            },
+            "turnScreenOnOff": {
+              "title": "Turn Screen ON/OFF",
+              "type": "boolean",
+              "default": false,
+              "description": "This enable possibility turn ON/OFF screen, only for webOS >= 4.0.",
+              "required": false
+            },
+            "brightnessControl": {
+              "title": "Brightness",
+              "type": "boolean",
+              "default": false,
+              "description": "This enable possibility adjust the Brightness.",
+              "required": false
+            },
+            "backlightControl": {
+              "title": "Backlight",
+              "type": "boolean",
+              "default": false,
+              "description": "This enable possibility adjust the Backlight.",
+              "required": false
+            },
+            "contrastControl": {
+              "title": "Contrast",
+              "type": "boolean",
+              "default": false,
+              "description": "This enable possibility adjust the Contrast.",
+              "required": false
+            },
+            "colorControl": {
+              "title": "Color",
+              "type": "boolean",
+              "default": false,
+              "description": "This enable possibility adjust the Color.",
+              "required": false
+            },
+            "pictureModeControl": {
+              "title": "Picture Modes",
+              "type": "boolean",
+              "default": false,
+              "description": "This enable possibility change the Picture Mode, only for webOS >= 4.0.",
+              "required": false
+            },
+            "pictureModes": {
+              "title": "Picture Mode",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "title": "Name",
+                    "type": "string",
+                    "placeholder": "Picture Mode Name",
+                    "description": "Here set Your own Picture Mode name.",
+                    "required": true
+                  },
+                  "reference": {
+                    "title": "Mode",
+                    "type": "string",
+                    "description": "Here choice the Picture Mode.",
+                    "oneOf": [
+                      {
+                        "title": "Normal",
+                        "enum": [
+                          "normal"
+                        ]
+                      },
+                      {
+                        "title": "Cinema",
+                        "enum": [
+                          "cinema"
+                        ]
+                      },
+                      {
+                        "title": "Eco",
+                        "enum": [
+                          "eco"
+                        ]
+                      },
+                      {
+                        "title": "Game",
+                        "enum": [
+                          "game"
+                        ]
+                      },
+                      {
+                        "title": "Photo",
+                        "enum": [
+                          "photo"
+                        ]
+                      },
+                      {
+                        "title": "Sports",
+                        "enum": [
+                          "sports"
+                        ]
+                      },
+                      {
+                        "title": "Vivid",
+                        "enum": [
+                          "vivid"
+                        ]
+                      },
+                      {
+                        "title": "Technicolor",
+                        "enum": [
+                          "technicoloro"
+                        ]
+                      },
+                      {
+                        "title": "Filmmaker",
+                        "enum": [
+                          "filmmaker"
+                        ]
+                      },
+                      {
+                        "title": "HDR Effect",
+                        "enum": [
+                          "hdrEffect"
+                        ]
+                      },
+                      {
+                        "title": "HDR Standard",
+                        "enum": [
+                          "hdrStandard"
+                        ]
+                      },
+                      {
+                        "title": "HDR Vivid",
+                        "enum": [
+                          "hdrVivid"
+                        ]
+                      },
+                      {
+                        "title": "HDR Cinema",
+                        "enum": [
+                          "hdrCinemarmal"
+                        ]
+                      },
+                      {
+                        "title": "HDR Cinema Bright",
+                        "enum": [
+                          "hdrCinemaBright"
+                        ]
+                      },
+                      {
+                        "title": "HDR External",
+                        "enum": [
+                          "hdrExternal"
+                        ]
+                      },
+                      {
+                        "title": "HDR Technicolor",
+                        "enum": [
+                          "hdrTechnicolor"
+                        ]
+                      },
+                      {
+                        "title": "Dolby Standard",
+                        "enum": [
+                          "dolbyStandard"
+                        ]
+                      },
+                      {
+                        "title": "Dolby HDR Standard",
+                        "enum": [
+                          "dolbyHdrStandard"
+                        ]
+                      },
+                      {
+                        "title": "Dolby HDR Cinema",
+                        "enum": [
+                          "dolbyHdrCinema"
+                        ]
+                      },
+                      {
+                        "title": "Dolby HDR Cinema Bright",
+                        "enum": [
+                          "dolbyHdrCinemaBright"
+                        ]
+                      },
+                      {
+                        "title": "Dolby HDR Cinema Dark",
+                        "enum": [
+                          "dolbyHdrDarkAmazon"
+                        ]
+                      },
+                      {
+                        "title": "Dolby HDR Game",
+                        "enum": [
+                          "dolbyHdrGame"
+                        ]
+                      },
+                      {
+                        "title": "Expert 1",
+                        "enum": [
+                          "expert1"
+                        ]
+                      },
+                      {
+                        "title": "Expert 2",
+                        "enum": [
+                          "expert2"
+                        ]
+                      }
+                    ],
+                    "required": true
+                  }
+                }
+              }
+            },
+            "volumeControl": {
+              "title": "Volume",
+              "type": "integer",
+              "oneOf": [
+                {
+                  "title": "None/Disabled",
+                  "enum": [
+                    -1
+                  ]
+                },
+                {
+                  "title": "Slider",
+                  "enum": [
+                    0
+                  ]
+                },
+                {
+                  "title": "Fan",
+                  "enum": [
+                    1
+                  ]
+                }
+              ],
+              "description": "Here select what a volume control mode You want to use. If select *None/Disabled* only hardware buttons in RC app can be used to control volume.",
+              "required": true
+            },
+            "soundModeControl": {
+              "title": "Sound Modes",
+              "type": "boolean",
+              "default": false,
+              "description": "This enable possibility change the Sound Mode, only for webOS >= 6.0.",
+              "required": false
+            },
+            "soundModes": {
+              "title": "Sound Mode",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "title": "Name",
+                    "type": "string",
+                    "placeholder": "Sound Mode Name",
+                    "description": "Here set Your own Sound Mode name.",
+                    "required": true
+                  },
+                  "reference": {
+                    "title": "Mode",
+                    "type": "string",
+                    "description": "Here choice the Sound Mode.",
+                    "oneOf": [
+                      {
+                        "title": "Ai Sound",
+                        "enum": [
+                          "aiSoundPlus"
+                        ]
+                      },
+                      {
+                        "title": "Standard",
+                        "enum": [
+                          "Standard"
+                        ]
+                      },
+                      {
+                        "title": "Cinema",
+                        "enum": [
+                          "movie"
+                        ]
+                      },
+                      {
+                        "title": "ClearVoice",
+                        "enum": [
+                          "clearVoice"
+                        ]
+                      },
+                      {
+                        "title": "News",
+                        "enum": [
+                          "news"
+                        ]
+                      },
+                      {
+                        "title": "Sports",
+                        "enum": [
+                          "sports"
+                        ]
+                      },
+                      {
+                        "title": "Music",
+                        "enum": [
+                          "music"
+                        ]
+                      },
+                      {
+                        "title": "Game",
+                        "enum": [
+                          "game"
+                        ]
+                      }
+                    ],
+                    "required": true
+                  }
+                }
+              }
+            },
+            "enableDebugMode": {
+              "title": "Debug",
+              "type": "boolean",
+              "default": false,
+              "description": "This enable debug mode.",
+              "required": false
+            },
+            "disableLogInfo": {
+              "title": "Disable Log Info",
+              "type": "boolean",
+              "default": false,
+              "description": "This disable logging values and states on every it change.",
+              "required": false
+            },
+            "disableLogDeviceInfo": {
+              "title": "Disable Log Device Info",
+              "type": "boolean",
+              "default": false,
+              "description": "This disable log device info by every connections device to the network.",
+              "required": false
+            },
+            "disableTvService": {
+              "title": "Disable TV Service",
+              "type": "boolean",
+              "default": false,
+              "description": "This disable TV service and prevent display double services if TV already support HomeKit native.",
+              "required": false
+            },
+            "sslWebSocket": {
+              "title": "SSL WebSocket",
+              "type": "boolean",
+              "default": false,
+              "required": false,
+              "description": "This enable SSL WebSocket, support TV with new firmware."
+            },
+            "infoButtonCommand": {
+              "title": "Info Button",
+              "type": "string",
+              "oneOf": [
+                {
+                  "title": "Home",
+                  "enum": [
+                    "HOME"
+                  ]
+                },
+                {
+                  "title": "Menu",
+                  "enum": [
+                    "MENU"
+                  ]
+                },
+                {
+                  "title": "Q Menu",
+                  "enum": [
+                    "QMENU"
+                  ]
+                },
+                {
+                  "title": "Info",
+                  "enum": [
+                    "INFO"
+                  ]
+                },
+                {
+                  "title": "Red",
+                  "enum": [
+                    "RED"
+                  ]
+                },
+                {
+                  "title": "Green",
+                  "enum": [
+                    "GREEN"
+                  ]
+                },
+                {
+                  "title": "Yellow",
+                  "enum": [
+                    "YELLOW"
+                  ]
+                },
+                {
+                  "title": "Blue",
+                  "enum": [
+                    "BLUE"
+                  ]
+                }
+              ],
+              "description": "Here select the function of info button in RC.",
+              "required": true
+            },
+            "enableRestFul": {
+              "title": "Enable",
+              "type": "boolean",
+              "default": false,
+              "required": false,
+              "description": "This enable RESTful server."
+            },
+            "restFulDebug": {
+              "title": "Debug",
+              "type": "boolean",
+              "default": false,
+              "required": false,
+              "description": "This enable debug mode for RESTFul.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableRestFul === true;"
+              }
+            },
+            "restFulPort": {
+              "title": "Port",
+              "type": "integer",
+              "placeholder": 3000,
+              "required": true,
+              "description": "Here set the listening Port for RESTful server, every device need own port.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableRestFul === true;"
+              }
+            },
+            "enableMqtt": {
+              "title": "Enable",
+              "type": "boolean",
+              "default": false,
+              "required": false,
+              "description": "This enable MQTT client."
+            },
+            "mqttDebug": {
+              "title": "Debug",
+              "type": "boolean",
+              "default": false,
+              "required": false,
+              "description": "This enable debug mode for MQTT.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableMqtt === true;"
+              }
+            },
+            "mqttHost": {
+              "title": "IP/Hostname",
+              "type": "string",
+              "placeholder": "ip or hostname",
+              "required": true,
+              "format": "hostname",
+              "description": "Here set the IP/Hostname of MQTT Broker.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableMqtt === true;"
+              }
+            },
+            "mqttPort": {
+              "title": "Port",
+              "type": "integer",
+              "placeholder": 1883,
+              "required": true,
+              "description": "Here set the port of MQTT Broker.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableMqtt === true;"
+              }
+            },
+            "mqttClientId": {
+              "title": "Client ID",
+              "type": "string",
+              "placeholder": "client id",
+              "required": false,
+              "description": "Here optional set the Client ID of MQTT Broker.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableMqtt === true"
+              }
+            },
+            "mqttPrefix": {
+              "title": "Prefix",
+              "type": "string",
+              "placeholder": "home/lg",
+              "required": false,
+              "description": "Here set the prefix.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableMqtt === true;"
+              }
+            },
+            "mqttAuth": {
+              "title": "Authorization",
+              "type": "boolean",
+              "default": false,
+              "required": false,
+              "description": "This enable authorization for MQTT Broker.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableMqtt === true;"
+              }
+            },
+            "mqttUser": {
+              "title": "User",
+              "type": "string",
+              "placeholder": "user",
+              "required": false,
+              "description": "Here set the user of MQTT Broker.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableMqtt === true && model.devices[arrayIndices].mqttAuth === true;"
+              }
+            },
+            "mqttPasswd": {
+              "title": "Password",
+              "type": "string",
+              "placeholder": "password",
+              "required": false,
+              "description": "Here set the password of MQTT Broker.",
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].enableMqtt === true && model.devices[arrayIndices].mqttAuth === true;"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "layout": [
+    {
+      "key": "devices",
+      "type": "tabarray",
+      "title": "{{ value.name || 'new device' }}",
+      "items": [
+        "devices[].name",
+        "devices[].host",
+        "devices[].mac",
+        {
+          "key": "devices[]",
+          "type": "section",
+          "title": "Inputs",
+          "expandable": true,
+          "expanded": false,
+          "items": [
+            "devices[].getInputsFromDevice",
+            "devices[].filterSystemApps",
+            {
+              "key": "devices[].inputs",
+              "type": "tabarray",
+              "title": "{{ value.name || 'new input' }}",
+              "items": [
+                "devices[].inputs[].name",
+                "devices[].inputs[].reference",
+                "devices[].inputs[].mode"
+              ],
+              "condition": {
+                "functionBody": "return model.devices[arrayIndices].getInputsFromDevice === false;"
+              }
+            }
+          ]
+        },
+        {
+          "key": "devices[]",
+          "type": "section",
+          "title": "Buttons",
+          "expandable": true,
+          "expanded": false,
+          "items": [
+            {
+              "key": "devices[].buttons",
+              "type": "tabarray",
+              "title": "{{ value.name || 'new button' }}",
+              "items": [
+                "devices[].buttons[].name",
+                "devices[].buttons[].mode",
+                "devices[].buttons[].reference",
+                "devices[].buttons[].command",
+                "devices[].buttons[].displayType"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "devices[]",
+          "type": "section",
+          "title": "Advanced Settings",
+          "expandable": true,
+          "expanded": false,
+          "items": [
+            {
+              "key": "devices[]",
+              "type": "tabarray",
+              "title": "{{ value.title }}",
+              "items": [
+                {
+                  "key": "devices[]",
+                  "title": "Sensors",
+                  "items": [
+                    "devices[].sensorPower",
+                    "devices[].sensorVolume",
+                    "devices[].sensorMute",
+                    "devices[].sensorInput",
+                    "devices[].sensorChannel",
+                    "devices[].sensorSoundMode",
+                    "devices[].sensorPictureMode",
+                    "devices[].sensorScreenOnOff",
+                    "devices[].sensorScreenSaver",
+                    "devices[].sensorPixelRefresh",
+                    {
+                      "key": "devices[]",
+                      "type": "section",
+                      "title": "Custom Inputs",
+                      "expandable": true,
+                      "expanded": false,
+                      "items": [
+                        {
+                          "key": "devices[].sensorInputs",
+                          "type": "tabarray",
+                          "title": "{{ value.name || 'new sensor' }}",
+                          "items": [
+                            "devices[].sensorInputs[].name",
+                            "devices[].sensorInputs[].reference",
+                            "devices[].sensorInputs[].displayType"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "key": "devices[]",
+                  "title": "Picture / Screen",
+                  "items": [
+                    "devices[].turnScreenOnOff",
+                    "devices[].brightnessControl",
+                    "devices[].backlightControl",
+                    "devices[].contrastControl",
+                    "devices[].colorControl",
+                    "devices[].pictureModeControl",
+                    {
+                      "items": [
+                        {
+                          "key": "devices[].pictureModes",
+                          "type": "tabarray",
+                          "title": "{{ value.name || 'new mode' }}",
+                          "items": [
+                            "devices[].pictureModes[].name",
+                            "devices[].pictureModes[].reference"
+                          ],
+                          "condition": {
+                            "functionBody": "return model.devices[arrayIndices].pictureModeControl === true;"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "key": "devices[]",
+                  "title": "Sound / Volume",
+                  "items": [
+                    "devices[].volumeControl",
+                    "devices[].soundModeControl",
+                    {
+                      "items": [
+                        {
+                          "key": "devices[].soundModes",
+                          "type": "tabarray",
+                          "title": "{{ value.name || 'new mode' }}",
+                          "items": [
+                            "devices[].soundModes[].name",
+                            "devices[].soundModes[].reference"
+                          ],
+                          "condition": {
+                            "functionBody": "return model.devices[arrayIndices].soundModeControl === true;"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "key": "devices[]",
+                  "title": "Device",
+                  "items": [
+                    "devices[].sslWebSocket",
+                    "devices[].infoButtonCommand"
+                  ]
+                },
+                {
+                  "key": "devices[]",
+                  "title": "System",
+                  "items": [
+                    "devices[].enableDebugMode",
+                    "devices[].disableLogInfo",
+                    "devices[].disableLogDeviceInfo",
+                    "devices[].disableTvService"
+                  ]
+                },
+                {
+                  "key": "devices[]",
+                  "title": "External Integrations",
+                  "items": [
+                    {
+                      "key": "devices[]",
+                      "type": "tabarray",
+                      "title": "{{ value.title }}",
+                      "items": [
+                        {
+                          "key": "devices[]",
+                          "title": "RESTFul",
+                          "items": [
+                            "devices[].enableRestFul",
+                            "devices[].restFulDebug",
+                            "devices[].restFulPort"
+                          ]
+                        },
+                        {
+                          "key": "devices[]",
+                          "title": "MQTT",
+                          "items": [
+                            "devices[].enableMqtt",
+                            "devices[].mqttDebug",
+                            "devices[].mqttHost",
+                            "devices[].mqttPort",
+                            "devices[].mqttPrefix",
+                            "devices[].mqttAuth",
+                            "devices[].mqttUser",
+                            "devices[].mqttPasswd"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

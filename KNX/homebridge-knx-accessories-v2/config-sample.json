@@ -1,0 +1,28 @@
+{
+	"bridge": {
+		"name": "Cue-1",
+		"username": "0E:F6:E5:BA:C2:87",
+		"port": 51106,
+		"pin": "000-00-901",
+		"manufacturer": "Chipbucket",
+                "model": "Cue-Home"
+	},
+	"platforms": [{
+			"platform": "knx-router",
+                        "switch": [{
+                        "trigger_dpt1_address": "1/1/1",
+                        "status_dpt1_address": "1/4/1"
+                         }],
+			"dim": [{
+                        "trigger_dpt1_address": "1/1/2",
+                        "trigger_dpt5_address": "1/3/2",
+                        "status_dpt5_address": "1/5/2"
+                         }],
+			"curtain": [{
+                        "trigger_dpt1_address": "3/1/1",
+                        "status_dpt1_address": "3/1/1",
+                        "trigger_dpt5_address": "3/3/1",
+                        "status_dpt5_address": "3/4/1"
+                         }]
+  }]
+}

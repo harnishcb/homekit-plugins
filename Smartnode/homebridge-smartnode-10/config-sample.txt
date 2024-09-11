@@ -1,0 +1,24 @@
+  {
+            "platform": "Smartnode-Device-8_Channel",
+            "Serial-No.": "8001230220171516",
+            "IP-Address": "192.168.0.51",
+            "Panel-Name": "Main Entry",
+            "Token of Device": "amc",
+            "Configuration": [
+                {
+                    "Channel_1": "Switch",
+                    "Channel_2": "Switch",
+                    "Channel_3": "Switch",
+                    "Channel_4": "Switch",
+                    "Channel_5": "Switch",
+                    "Channel_6": "Switch",
+                    "Channel_7": "Switch",
+                    "Channel_8": "Switch"
+                }
+            ],
+            "_bridge": {
+                "name": "Main-Entry",
+                "username": "0E:98:73:11:D1:A9",
+                "port": 51441
+            }
+        }

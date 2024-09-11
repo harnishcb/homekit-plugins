@@ -1,0 +1,21 @@
+,
+        {
+            "platform": "Smartnode-Device-4_Channel",
+            "Serial-No.": "4000230217103028",
+            "IP-Address": "192.168.0.59",
+            "Panel-Name": "Bed_1-2",
+            "Token of Device": "00200bf7e3cebaa6917d",
+            "Configuration": [
+                {
+                    "Channel_1": "Switch",
+                    "Channel_2": "Switch",
+                    "Channel_3": "Switch",
+                    "Channel_4": "Switch"
+                }
+            ],
+            "_bridge": {
+                "name": "Bed-1-2",
+                "username": "0E:98:73:11:D1:B5",
+                "port": 51447
+            }
+        }

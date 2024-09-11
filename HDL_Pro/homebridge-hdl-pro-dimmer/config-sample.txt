@@ -1,0 +1,18 @@
+{
+            "platform": "HDL_Pro-Switch",
+            "IP-Address-of-Manger-Hub": "localhost",
+            "Switch": [
+                {
+                    "Name": "Switch",
+                    "HDL_Address": "1/4/1"
+                },{
+                    "Name": "Switch",
+                    "Room": "9",
+                    "Channel": "2"
+                },{
+                    "Name": "Switch",
+                    "Room": "9",
+                    "Channel": "3"
+                }
+            ]
+        }

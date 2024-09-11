@@ -1,0 +1,53 @@
+{
+  "_from": "homebridge-smartnode-8",
+  "_id": "homebridge-smartnode-8@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha1-jRD+e50bDlSYDR4CTHQMUaEnsXc=",
+  "_location": "/homebridge-smartnode-8",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-smartnode-8",
+    "name": "homebridge-smartnode-8",
+    "escapedName": "homebridge-smartnode-8",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-smartnode-8/-/homebridge-smartnode-8-1.0.1.tgz",
+  "_shasum": "8d10fe7b9d1b0e54980d1e024c740c51a127b177",
+  "_spec": "homebridge-smartnode-8",
+  "_where": "C:\\Users\\Shreyas",
+  "author": {
+    "name": "Shreyas Patel"
+  },
+  "bugs": {
+    "url": "https://github.com/Shreyas-Patel-24/homebridge-smatnode-8/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A Homebridge plugin to control Smartnode 8 channel devices over TCP",
+  "engines": {
+    "homebridge": ">=1.0.0",
+    "node": ">=12.0.0"
+  },
+  "homepage": "https://github.com/Shreyas-Patel-24/homebridge-smatnode-8/issues",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge-smartnode-8",
+    "homebridge"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "homebridge-smartnode-8",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shreyas-Patel-24/homebridge-smartnode-8.git"
+  },
+  "version": "1.0.0"
+}

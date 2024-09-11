@@ -1,0 +1,37 @@
+{
+	"bridge": {
+		"name": "Shreyas",
+		"username": "CC:22:3D:E3:CE:30",
+		"port": 51826,
+		"pin": "000-00-001",
+                "manufacturer": "CBT",
+                "model": "SP"
+	},
+
+
+	"platforms": [
+         {
+         "platform": "coolautomation",
+         "ip": "192.168.1.41",
+         "outdoor": [{
+           "main": "L1",
+           "indoor": [101,102,103,104,105,106,107,108],
+           "min_temp": 18,
+           "max_temp": 30,
+           "fan_step": 4
+          },{
+           "main": "L2",
+           "indoor": [101,102,103,104,105,106,107,108],
+           "min_temp": 18,
+           "max_temp": 30,
+           "fan_step": 4
+          },{
+           "main": "L3",
+           "indoor": [001,002,006,008,009,102,107,109],
+           "min_temp": 18,
+           "max_temp": 30,
+           "fan_step": 4
+          }]
+        }
+
+]}

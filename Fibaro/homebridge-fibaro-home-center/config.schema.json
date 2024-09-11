@@ -1,0 +1,274 @@
+{
+  "pluginAlias": "FibaroHC",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Homebridge plugin for Fibaro Home Center.",
+  "footerDisplay": "For additonal information visit [Plugin Homepage](https://github.com/ilcato/homebridge-fibaro-home-center).",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "Plugin name as displayed in the homebridge log.",
+        "title": "Name",
+        "type": "string",
+        "required": true,
+        "default": "FibaroHC"
+      },
+      "url": {
+        "description": "e.g.: https://hc-00000XXX.local or 192.168.1.100 .",
+        "title": "Url or IP",
+        "type": "string",
+        "required": true
+      },
+      "host": {
+        "description": "Field 'host' is deprecated and will be removed in the future. Use field 'url' instead.",
+        "title": "Host (IP)",
+        "type": "string",
+        "required": false
+      },
+      "username": {
+        "description": "Username for Home Center.",
+        "title": "Username",
+        "type": "string",
+        "required": true
+      },
+      "password": {
+        "description": "Password for Home Center.",
+        "title": "Password",
+        "type": "string",
+        "required": true
+      },
+      "pollerperiod": {
+        "description": "Polling interval for querying Fibaro Home Center machine (0: disabled, recomended: 2, 1 second allows for a more responsive update of the Home app when changes appear outside the HomeKit environment). If it is disabled the Home app is not updated automatically when such a change happen but only when you close a panel and reopen it.",
+        "title": "Poller period",
+        "type": "integer",
+        "required": false,
+        "default": 2,
+        "placeholder": 2,
+        "minimum": 0
+      },
+      "thermostatmaxtemperature": {
+        "description": "Set the maximum allowed temperature in celcius for the thermostatic controls (defaults to 100 degrees celcius)",
+        "title": "Themostat Max Temperature",
+        "type": "integer",
+        "required": false,
+        "default": 100,
+        "placeholder": 100,
+        "minimum": 0
+      },
+      "switchglobalvariables": {
+        "description": "A comma separeted list of Fibaro Home Center global variables acting like a bistable switch.",
+        "title": "Global variables switches",
+        "type": "string",
+        "required": false
+      },
+      "dimmerglobalvariables": {
+        "description": "A comma separeted list of Fibaro Home Center global variables acting like a dimmer.",
+        "title": "Global variables dimmers",
+        "type": "string",
+        "required": false
+      },
+      "adminUsername": {
+        "title": "Admin username for accessing Fibaro Home Center machine (only for setting global variables).",
+        "type": "string",
+        "placeholder": "admin",
+        "required": false,
+        "description": "If user provided above doesn't have admin rights in your Home Center, enter admin username of your Home Center to set global variables."
+      },
+      "adminPassword": {
+        "title": "Admin password for accessing Fibaro Home Center machine (only for setting global variables).",
+        "type": "string",
+        "required": false,
+        "description": "If user provided above doesn't have admin rights in your Home Center, enter password of your Home Center to set global variables."
+      },
+      "securitysystem": {
+        "description": "Enable or disable the Security system, see homepage for detail.",
+        "title": "Security system",
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "Enabled",
+            "enum": [
+              "enabled"
+            ]
+          },
+          {
+            "title": "Disabled",
+            "enum": [
+              "disabled"
+            ]
+          }
+        ],
+        "default": "disabled"
+      },
+      "addRoomNameToDeviceName": {
+        "description": "If enabled, to each device name will be added the name of the room in which it is located. Default: disabled.",
+        "title": "Add room name to device name.",
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "Enabled",
+            "enum": [
+              "enabled"
+            ]
+          },
+          {
+            "title": "Disabled",
+            "enum": [
+              "disabled"
+            ]
+          }
+        ],
+        "default": "disabled"
+      },
+      "doorbellDeviceId": {
+        "description": "Device ID acting as a doorbell (Only binary type of sensors are supported)",
+        "title": "Doorbell device ID",
+        "type": "integer",
+        "required": false
+      },
+      "logsLevel": {
+        "description": "Choose what logs to display. The most important logs will be displayed regardless of this choice.",
+        "title": "Logs Level",
+        "type": "number",
+        "default": "1",
+        "required": true,
+        "oneOf": [
+          {
+            "title": "Disabled",
+            "enum": [
+              "0"
+            ]
+          },
+          {
+            "title": "Only changes",
+            "enum": [
+              "1"
+            ]
+          },
+          {
+            "title": "All Logs",
+            "enum": [
+              "2"
+            ]
+          }
+        ]
+      },
+      "advControl": {
+        "description": "Enable this if you want the device type in Homekit to depend on how the device role in Fibaro is selected. Details can be found on Homepage (link in footer). Be sure to read the page BEFORE ENABLING this feature! Every change of devices display type (e.g. from Switch to Outlet etc.) can make it display incorrectly (like doubled) until removed from cache in Homebridge Settings - unfortunately, in this case, the settings for this device will most likely be lost (room selection, automations, etc.).",
+        "title": "Advanced control",
+        "type": "number",
+        "default": "0",
+        "required": true,
+        "oneOf": [
+          {
+            "title": "Disabled",
+            "enum": [
+              "0"
+            ]
+          },
+          {
+            "title": "Enabled",
+            "enum": [
+              "1"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "layout": [  
+    {
+      "type": "fieldset",
+      "title": "Basic settings",
+      "description": "Enter Host (IP) or URL of the Fibaro HC, username and password.",
+      "expandable": true,
+      "expanded": true,
+      "items": [
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["url", "host"]
+        },
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["username", "password"]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Global variables",
+      "description": "",
+      "expandable": true,
+      "expanded": false,
+      "items": [
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["switchglobalvariables", "dimmerglobalvariables"]
+        },
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["adminUsername", "adminPassword"]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Advanced settings",
+      "description": "",
+      "expandable": true,
+      "expanded": false,
+      "items": [
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["pollerperiod", "securitysystem"]
+        },
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["addRoomNameToDeviceName", "doorbellDeviceId"]
+        },
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["thermostatmaxtemperature"]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Advanced control",
+      "description": "",
+      "expandable": true,
+      "expanded": false,
+      "items": [
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["advControl"]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Logs",
+      "description": "",
+      "expandable": true,
+      "expanded": false,
+      "items": [
+        {
+          "type": "flex",
+          "flex-flow": "row wrap",
+          "items": ["name", "logsLevel"]
+        }
+      ]
+    }
+  ],
+  "form": null,
+  "display": null
+}

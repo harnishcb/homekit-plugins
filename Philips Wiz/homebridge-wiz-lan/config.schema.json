@@ -1,0 +1,94 @@
+{
+  "pluginAlias": "WizSmarthome",
+  "pluginType": "platform",
+  "singular":true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "default": "WizSmarthome"
+      },
+      "port": {
+        "title": "Port",
+        "type": "integer",
+        "description": "[Optional] Port for bulbs to connect to your server.",
+        "placeholder": 38900,
+        "minimum": 0
+      },
+      "enableScenes": {
+        "title": "Enable Scenes",
+        "type": "boolean",
+        "description": "[Optional] Turn on support for scenes with your lightbulbs. THIS WILL MAKE IT IMPOSSIBLE TO GROUP LIGHTS",
+        "default": false
+      },
+      "lastStatus": {
+        "title": "Last Status",
+        "type": "boolean",
+        "description": "[Optional] Lights will remember the last mode used when turned on (light settings in HomeKit will be ignored).",
+        "default": false
+      },
+      "broadcast": {
+        "title": "Broadcast Address",
+        "type": "string",
+        "format": "ipv4",
+        "description": "[Optional] UDP Broadcast address for device discovery."
+      },
+      "address": {
+        "title": "Server Address",
+        "type": "string",
+        "format": "ipv4",
+        "description": "[Optional] Your server's IP address."
+      },
+      "refreshInterval": {
+        "title": "Refresh Pings",
+        "type": "integer",
+        "default": 0,
+        "description": "[Optional] Refresh/ping every accessory to get their latest state on an interval. Specify in seconds, 0 = off"
+      },
+      "devices": {
+        "title": "Devices",
+        "type": "array",
+        "description": "[Optional] Manual list of IP addresses of bulbs",
+        "items": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "title": "Device IP",
+              "type": "string",
+              "format": "ipv4"
+            },
+            "name": {
+              "title": "Device Name",
+              "type": "string"
+            },
+            "mac": {
+              "title": "Device MAC",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ignoredDevices": {
+        "title": "Ignored Devices",
+        "type": "array",
+        "description": "[Optional] List of devices to ignore",
+        "items": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "title": "Device IP",
+              "type": "string",
+              "format": "ipv4"
+            },
+            "mac": {
+              "title": "Device MAC",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

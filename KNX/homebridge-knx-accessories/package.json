@@ -1,0 +1,60 @@
+{
+  "_from": "homebridge-knx-accessories",
+  "_id": "homebridge-knx-accessories@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-jRD+e50bDlSYDR4CTHQMUaEnsXc=",
+  "_location": "/homebridge-knx-accessories",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-knx-accessories",
+    "name": "homebridge-knx-accessories",
+    "escapedName": "homebridge-knx-accessories",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-knx-accessories/-/homebridge-knx-accessories-1.0.0.tgz",
+  "_shasum": "8d10fe7b9d1b0e54980d1e024c740c51a127b177",
+  "_spec": "homebridge-knx-accessories",
+  "_where": "C:\\Users\\Shreyas",
+  "author": {
+    "name": "nitaybz"
+  },
+  "bugs": {
+    "url": "https://github.com/nitaybz/homebridge-knx-accessories/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "color-convert": "^2.0.1",
+    "half": "0.0.1",
+    "ieee-float": "^0.6.0",
+    "knx-ip": "^0.1.15"
+  },
+  "deprecated": false,
+  "description": "A Homebridge plugin to control blinds trough UDP packets - inspired by Homebridge-NooLite-HTTP-Blinds by JenRus",
+  "engines": {
+    "homebridge": ">=1.0.0",
+    "node": ">=12.12.0"
+  },
+  "homepage": "https://github.com/nitaybz/homebridge-knx-accessories#readme",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge-blinds",
+    "homebridge",
+    "blinds",
+    "udp"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "homebridge-knx-accessories",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitaybz/homebridge-knx-accessories.git"
+  },
+  "version": "1.0.0"
+}

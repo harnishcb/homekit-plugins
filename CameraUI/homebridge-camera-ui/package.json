@@ -1,0 +1,77 @@
+{
+  "name": "homebridge-camera-ui",
+  "version": "5.0.27",
+  "description": "User Interface for RTSP capable cameras with HSV support.",
+  "author": "SeydX (https://github.com/SeydX/homebridge-camera-ui)",
+  "scripts": {
+    "build": "npm run build --prefix homebridge-ui/ui",
+    "lint": "concurrently \"npm run lint:homebridge-ui\" \"npm run lint:plugin\"",
+    "lint:homebridge-ui": "npm run lint --prefix homebridge-ui/ui",
+    "lint:plugin": "eslint --fix .",
+    "watch": "npm run serve --prefix homebridge-ui/ui",
+    "prepublishOnly": "npm i --package-lock-only && npm run lint && npm run build"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@homebridge/plugin-ui-utils": "^0.0.19",
+    "camera.ui": "^1.1.17",
+    "ffmpeg-for-homebridge": "0.0.9",
+    "fs-extra": "10.1.0",
+    "pick-port": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.17.9",
+    "@babel/eslint-parser": "7.17.0",
+    "@babel/eslint-plugin": "7.17.7",
+    "concurrently": "7.1.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "prettier": "^2.6.2"
+  },
+  "bugs": {
+    "url": "https://github.com/SeydX/homebridge-camera-ui/issues"
+  },
+  "engines": {
+    "node": ">=14.18.2",
+    "homebridge": "^1.4.0"
+  },
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/seydx"
+    },
+    {
+      "type": "kofi",
+      "url": "https://ko-fi.com/seydx"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/SeydX"
+    }
+  ],
+  "homepage": "https://github.com/SeydX/homebridge-camera-ui#readme",
+  "keywords": [
+    "camera",
+    "homebridge-plugin",
+    "motion",
+    "detection",
+    "ui",
+    "rekognition",
+    "aws",
+    "interface",
+    "webapp",
+    "hsv",
+    "homekit",
+    "secure",
+    "video"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeydX/homebridge-camera-ui.git"
+  },
+  "type": "module"
+}

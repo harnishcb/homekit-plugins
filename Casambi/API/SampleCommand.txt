@@ -1,0 +1,12 @@
+Net_ID#Command_Direction#0x_Casambi_Data
+
+to Casambi : 1#114#1#29#ACK/r/n
+
+Fo Casambi : 1#112#
+
+{
+struct packet {
+uint8_t length; //length (opcode + arguments)
+uint8_t opcode;  0x1D
+uint8_t arguments[length-1];
+}

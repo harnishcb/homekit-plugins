@@ -1,0 +1,13 @@
+{
+            "platform": "Smartnode-Device-2_Channel",
+            "Serial-No.": "2000230220174625",
+            "IP-Address": "192.168.0.69",
+            "Panel-Name": "MSBed-2_2",
+            "Token of Device": "00c3af9a86725d493520",
+            "Configuration": [
+                {
+                    "Channel_1": "Switch",
+                    "Channel_2": "Switch"
+                }
+            ]
+        }

@@ -1,0 +1,30 @@
+{
+"platforms": [
+         {
+         "platform": "elle_Cue",
+         "ip": "192.168.1.41",
+         "macaddress":"E8:DB:84:1E:1A:2A",
+         "devicelist":[{
+            "addr":"49152",
+            "type":"switch",
+            "name": "tast"
+         },
+        {
+            "addr":"49152",
+            "type":"Dimmer",
+            "name": "tast" 
+        },
+        {
+            "addr":"49152",
+            "type":"CCT",
+            "name": "tast" 
+        },
+        {
+            "addr":"49152",
+            "type":"RGB",
+            "name": "tast"
+        }
+    ]
+        }
+
+]}

@@ -1,0 +1,4 @@
+{
+            "platform": "HDL-Pro-Manager",
+            "IP-Address-HDL-bus": "192.168.1.78",
+        }

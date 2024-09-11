@@ -1,0 +1,26 @@
+{
+  "name": "homebridge-jr",
+  "version": "1.0.0",
+  "description": "COntrolJRPanel",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CueHome/Homekit-Plugins.git"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "author": "SMP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CueHome/Homekit-Plugins/issues"
+  },
+  "engines": {
+    "node": ">=12",
+    "homebridge": ">=1.1.1"
+  },
+  "homepage": "https://github.com/CueHome/Homekit-Plugins#readme"
+}

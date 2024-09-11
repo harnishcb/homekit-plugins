@@ -1,0 +1,14 @@
+ "platforms": [
+        {
+            "platform": "GC-AV",
+            "IP-Address": "192.168.1.120",
+            "device": [
+                {
+                    "Name": "Test",
+                    "Device-Type": "Switch"
+                    "On Code": "sendir,1:1",
+                    "Off Code": "sendir,1:1",
+                }
+            ]
+        }]
+        

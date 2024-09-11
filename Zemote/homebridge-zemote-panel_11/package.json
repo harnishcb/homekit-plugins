@@ -1,0 +1,53 @@
+{
+  "_from": "homebridge-zemote-panel_11",
+  "_id": "homebridge-zemote-panel_11@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-jRD+e50bDlSYDR4CTHQMUaEnsXc=",
+  "_location": "/homebridge-zemote-panel_11",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-zemote-panel_11",
+    "name": "homebridge-zemote-panel_11",
+    "escapedName": "homebridge-zemote-panel_11",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-zemote-panel_11/-/homebridge-zemote-panel_11-1.0.0.tgz",
+  "_shasum": "8d10fe7b9d1b0e54980d1e024c740c51a127b177",
+  "_spec": "homebridge-zemote-panel_11",
+  "_where": "C:\\Users\\Shreyas",
+  "author": {
+    "name": "nitaybz"
+  },
+  "bugs": {
+    "url": "https://github.com/Shreyas-Patel-24/Zemote/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A Homebridge plugin to control Zemote Panel",
+  "engines": {
+    "homebridge": ">=1.0.0",
+    "node": ">=12.0.0"
+  },
+  "homepage": "https://github.com/Shreyas-Patel-24/Zemote#readme",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge-blinds",
+    "homebridge"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "homebridge-zemote-panel_11",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shreyas-Patel-24/Zemote/zemote-panel_11.git"
+  },
+  "version": "1.0.0"
+}

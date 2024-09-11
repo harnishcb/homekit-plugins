@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "name": "@cuehome/homebridge-jr-ts",
+  "version": "1.0.0",
+  "description": "JR Automation",
+  "type": "module",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=14.18.1",
+    "homebridge": ">=1.3.5"
+  },
+  "scripts": {
+    "lint": "eslint src/**.ts --max-warnings=0",
+    "watch": "npm run build && npm link && nodemon",
+    "build": "rimraf ./dist && tsc",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "homebridge": "^1.6.0",
+    "nodemon": "^2.0.21",
+    "rimraf": "^4.4.0",
+    "typescript": "^4.9.5"
+  },
+  "author": "Cue Home",
+  "license": "ISC",
+  "dependencies": {
+    "zod": "^3.21.4"
+  }
+}

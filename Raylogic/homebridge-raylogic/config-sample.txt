@@ -1,0 +1,22 @@
+{
+            "platform": "Raylogic",
+            "IP-Address": "192.168.1.214",
+            "devices": [
+                {
+                    "Name": "Switch",
+                    "Area": "01",
+                    "Channel": "02",
+                    "Device-Type": "Switch"
+                },{
+                    "Name": "Switch",
+                    "Area": "01",
+                    "Channel": "04",
+                    "Device-Type": "Dimmer"
+                },{
+                    "Name": "Switch",
+                    "Area": "01",
+                    "Channel": "036",
+                    "Device-Type": "Fan"
+                }
+            ]
+        }

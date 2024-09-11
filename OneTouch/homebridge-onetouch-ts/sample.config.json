@@ -1,0 +1,58 @@
+{
+    "accessories": [],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8581,
+            "platform": "config"
+        },
+        {
+            "name": "homebridge-onetouch-ts",
+            "platform": "OneTouch",
+            "devices": [
+                {
+                    "name": "OneTouch Test",
+                    "host": "192.168.1.95",
+                    "username": "admin",
+                    "password": "admin",
+                    "lockTimeout": 7,
+                    "cameraConfig": {
+                        "name": "OneTouch",
+                        "manufacturer": "OneTouch",
+                        "model": "IP Camera",
+                        "serialNumber": "000000",
+                        "motion": false,
+                        "doorbell": false,
+                        "motionTimeout": 15,
+                        "unbridge": false,
+                        "hsv": true,
+                        "prebuffering": true,
+                        "prebufferLength": 4,
+                        "videoConfig": {
+                            "source": "-i rtsp://192.168.1.95:554/live/chan00_0",
+                            "subSource": "-i rtsp://192.168.1.95:554/live/chan00_1",
+                            "stillImageSource": "-i rtsp://192.168.1.95:554/live/chan00_0",
+                            "readRate": false,
+                            "rtspTransport": "udp",
+                            "maxStreams": 4,
+                            "maxWidth": 1280,
+                            "maxHeight": 720,
+                            "maxFPS": 15,
+                            "maxBitrate": 199,
+                            "forceMax": true,
+                            "vcodec": "copy",
+                            "acodec": "libfdk_aac",
+                            "stimeout": 10,
+                            "encoderOptions": "-preset ultrafast -tune zerolatency",
+                            "audio": true
+                        }
+                    }
+                }
+            ],
+            "_bridge": {
+                "username": "0E:19:E7:AA:6A:E5",
+                "port": 45870
+            }
+        }
+    ]
+}

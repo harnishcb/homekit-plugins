@@ -1,0 +1,29 @@
+{
+    "bridge": {
+        "name": "ShreyasCBT",
+        "username": "CC:22:3D:E3:DE:79",
+        "manufacturer": "SXMP",
+        "model": "SXMP",
+        "port": 51826,
+        "pin": "111-11-111"
+    },
+    "platforms": [
+            {
+            "platform": "Rako_v2",
+            "IP-Address": "192.168.0.102",
+            "Device": [{
+            "Room-ID": "1",
+            "Channel-ID": "2",
+            "Name": "Rako",
+            "Device-Type": "Switch"
+             },{
+            "Room-ID": "2",
+            "Channel-ID": "2",
+            "Name": "RakoDim",
+            "Device-Type": "Dimmer"
+             }]
+            
+  }
+    ],
+    "accessories": []
+}

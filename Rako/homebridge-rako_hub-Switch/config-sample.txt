@@ -1,0 +1,20 @@
+{
+            "platform": "Rako_Hub",
+            "IP-Address-Rako-Hub": "192.168.1.78",
+            "IP-Address-of-Manger-Hub": "192.168.1.60",
+            "Switch": [
+                {
+                    "Name": "Switch",
+                    "Room": "9",
+                    "Channel": "1"
+                },{
+                    "Name": "Switch",
+                    "Room": "9",
+                    "Channel": "2"
+                },{
+                    "Name": "Switch",
+                    "Room": "9",
+                    "Channel": "3"
+                }
+            ]
+        }

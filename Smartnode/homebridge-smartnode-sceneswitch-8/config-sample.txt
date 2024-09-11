@@ -1,0 +1,6 @@
+{
+            "platform": "Smartnode_Device-Scenepanel",
+            "Serial-No.": "2000230220174625",
+            "IP-Address": "192.168.0.69",
+            "Panel-Name": "Liv"
+        }

@@ -1,0 +1,32 @@
+Type - Switch 
+
+Trigger Light
+Switch:1:eventPowerState:1
+Switch:X:eventPowerState:0
+
+Feedback
+Switch:X:getPowerState
+
+Type - Light Dimmer 
+Lightbulb:1:eventPowerLevel:0
+Lightbulb:X:eventPowerLevel:100
+
+Type - CCT Light 
+Lightbulb:1:eventPowerLevel:0
+Lightbulb:X:eventPowerLevel:100
+Lightbulb:1:eventColortemperature:2700
+Lightbulb:X:eventColortemperature:6500
+
+Type - Curtain 
+Curtain:1:eventTargerState:1
+Curtain:X:eventTargerState:0
+
+Type - Fan (with level)
+Fan:1:eventSpeedLevel:0
+Fan:X:eventSpeedLevel:100
+
+Type - AC
+AC:1:eventPowerState:1
+AC:X:eventPowerState:0
+AC:1:eventTemperature:18
+AC:X:eventTemperature:30

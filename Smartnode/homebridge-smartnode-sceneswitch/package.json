@@ -1,0 +1,45 @@
+{
+  "_from": "homebridge-smartnode-sceneswitch",
+  "_id": "homebridge-smartnode-sceneswitch@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-jRD+e50bDlSYDR4CTHQMUaEnsXc=",
+  "_location": "/homebridge-smartnode-sceneswitch",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-smartnode-sceneswitch",
+    "name": "homebridge-smartnode-sceneswitch",
+    "escapedName": "homebridge-smartnode-sceneswitch",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_where": "C:\\Users\\Shreyas",
+  "author": {
+    "name": "SMP"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A Homebridge plugin for Smartnode Scene Switch Developed by SMP",
+  "engines": {
+    "homebridge": ">=1.5.0",
+    "node": ">=12.12.0"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge-blinds",
+    "homebridge"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "homebridge-smartnode-sceneswitch",
+  "repository": {
+    "type": "git"
+  },
+  "version": "1.0.0"
+}

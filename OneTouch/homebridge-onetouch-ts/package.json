@@ -1,0 +1,50 @@
+{
+  "private": false,
+  "name": "@cuehome/homebridge-onetouch-ts",
+  "version": "1.0.0",
+  "description": "Control OneTouch Door Phone via Homebridge.",
+  "engines": {
+    "node": ">=14.x.x",
+    "homebridge": ">=1.3.5"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src/**.ts --max-warnings=0",
+    "watch": "npm run build && npm link && nodemon",
+    "build": "rimraf ./dist && tsc",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "publishConfig": {
+    "registry": "http://drivers.cuehome.in:4873/"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge"
+  ],
+  "author": "Gautam Panchal",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/ip": "^1.1.0",
+    "@types/node": "^18.15.0",
+    "@types/ws": "^8.5.4",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.35.0",
+    "homebridge": "^1.6.0",
+    "nodemon": "^2.0.21",
+    "rimraf": "^4.4.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "ffmpeg-for-homebridge": "^0.1.4",
+    "get-port": "^6.1.2",
+    "got": "^12.6.0",
+    "ip": "^1.1.8",
+    "node-fetch": "^3.3.1",
+    "pick-port": "^1.0.1",
+    "zod": "^3.21.4"
+  }
+}

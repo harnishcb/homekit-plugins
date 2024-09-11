@@ -1,0 +1,16 @@
+
+        {
+            "platform": "SN-AC",
+            "ip": "192.168.1.120",
+            "serial": "E89F6D940AE40AE4",
+            "device": [
+                {
+                    "channel": "1",
+                    "ir_data_path": "/home/pi/irdb.csv",
+                    "swing": false,
+                    "min_temp": 19,
+                    "max_temp": 30,
+                    "fan_step": 3
+                }
+            ]
+        }

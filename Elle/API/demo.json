@@ -1,0 +1,1150 @@
+{   
+    "meshUUID": "B6FE7F0A-CB45-4287-BD53-EFDE5DDE8A77",
+    "meshName": "Reeva Mesh Network",
+    "timestamp": "2023-02-27T12:17:48Z",
+    "partial": false,
+
+    "provisioners": [
+        {
+            "UUID": "FB705481-07BF-4638-AC1E-198AC55389DF",
+            "allocatedGroupRange": [
+                {
+                    "lowAddress": "C000",
+                    "highAddress": "CC9A"
+                }
+            ],
+            "provisionerName": "Reeva Mesh Network",
+            "allocatedUnicastRange": [
+                {
+                    "highAddress": "199A",
+                    "lowAddress": "0001"
+                }
+            ],
+            "allocatedSceneRange": [
+                {
+                    "lastScene": "3333",
+                    "firstScene": "0001"
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "Reeva Mesh Provisioner",
+            "netKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ],
+            "excluded": false,
+            "appKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "features": {
+                "proxy": 2,
+                "relay": 2,
+                "friend": 2,
+                "lowPower": 2
+            },
+            "deviceKey": "2CC73DC7B50B4D8DB32E6314CCCB1FE5",
+            "unicastAddress": "002F",
+            "UUID": "FB705481-07BF-4638-AC1E-198AC55389DF",
+            "defaultTTL": 20,
+            "security": "insecure",
+            "elements": [
+                {
+                    "models": [
+                        {
+                            "modelId": "0001",
+                            "bind": [],
+                            "subscribe": []
+                        }
+                    ],
+                    "location": "0000",
+                    "index": 0,
+                    "name": "Element: 0x0001"
+                }
+            ],
+            "configComplete": true
+        },
+        {
+            "pid": "1041",
+            "netKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "security": "insecure",
+            "crpl": "03E8",
+            "UUID": "aaaaa076-4e53-84b6-0000-000000000000",
+            "name": "AERIVA Gateway Controller~1041~gateway",
+            "deviceKey": "0639AC01FE3D4225951702C3C38A8F92",
+            "features": {
+                "friend": 2,
+                "proxy": 1,
+                "lowPower": 2,
+                "relay": 1
+            },
+            "elements": [
+                {
+                    "location": "0000",
+                    "index": 0,
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "0000",
+                            "subscribe": []
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [],
+                            "modelId": "1001"
+                        },
+                        {
+                            "subscribe": [],
+                            "modelId": "1003",
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "subscribe": [],
+                            "modelId": "1302",
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "modelId": "1305",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": []
+                        },
+                        {
+                            "subscribe": [],
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1309"
+                        },
+                        {
+                            "modelId": "0C032001",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": []
+                        }
+                    ],
+                    "name": "Element: 0x03D3"
+                }
+            ],
+            "cid": "0C03",
+            "defaultTTL": 20,
+            "excluded": false,
+            "unicastAddress": "03D3",
+            "configComplete": false,
+            "vid": "0105",
+            "appKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ]
+        },
+        {
+            "deviceKey": "939165080F9B516BAFA4F953D5D8E4A2",
+            "configComplete": false,
+            "vid": "0200",
+            "pid": "1010",
+            "security": "insecure",
+            "crpl": "0258",
+            "elements": [
+                {
+                    "index": 0,
+                    "name": "Element: 0x00C4",
+                    "models": [
+                        {
+                            "modelId": "0000",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1001",
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1003"
+                        },
+                        {
+                            "modelId": "1000",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "modelId": "0C032001",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        }
+                    ],
+                    "location": "0000"
+                },
+                {
+                    "index": 1,
+                    "location": "0000",
+                    "name": "Element: 0x00C5",
+                    "models": [
+                        {
+                            "modelId": "1000",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Element: 0x00C6",
+                    "location": "0000",
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1000",
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        }
+                    ],
+                    "index": 2
+                },
+                {
+                    "models": [
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1000",
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "index": 3,
+                    "name": "Element: 0x00C7",
+                    "location": "0000"
+                },
+                {
+                    "location": "0000",
+                    "models": [
+                        {
+                            "modelId": "1000",
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "index": 4,
+                    "name": "Element: 0x00C8"
+                },
+                {
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1000",
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        }
+                    ],
+                    "location": "0000",
+                    "name": "Element: 0x00C9",
+                    "index": 5
+                },
+                {
+                    "name": "Element: 0x00CA",
+                    "location": "0000",
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1000"
+                        }
+                    ],
+                    "index": 6
+                }
+            ],
+            "excluded": false,
+            "unicastAddress": "00C4",
+            "features": {
+                "friend": 2,
+                "proxy": 1,
+                "relay": 1,
+                "lowPower": 2
+            },
+            "netKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ],
+            "UUID": "aacc34b4-72e6-9272-0000-000000000000",
+            "cid": "0C03",
+            "appKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "defaultTTL": 20,
+            "name": "AERIVA 6 Touch~1010~C09C"
+        },
+        {
+            "vid": "0200",
+            "defaultTTL": 20,
+            "cid": "0C03",
+            "name": "AERIVA 2 Touch~1016~C09C",
+            "features": {
+                "relay": 1,
+                "friend": 2,
+                "lowPower": 2,
+                "proxy": 1
+            },
+            "configComplete": false,
+            "deviceKey": "C1B53B0C5CDACA4D3720E57D0C6C7AA9",
+            "unicastAddress": "1858",
+            "pid": "1016",
+            "appKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "crpl": "0258",
+            "security": "insecure",
+            "netKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ],
+            "elements": [
+                {
+                    "location": "0000",
+                    "index": 0,
+                    "models": [
+                        {
+                            "modelId": "0000",
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1001",
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1003",
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "modelId": "1000",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C",
+                                "CC81"
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "0C032001",
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "name": "Element: 0x1858"
+                },
+                {
+                    "index": 1,
+                    "location": "0000",
+                    "name": "Element: 0x1859",
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C",
+                                "CC81"
+                            ],
+                            "modelId": "1000"
+                        }
+                    ]
+                },
+                {
+                    "location": "0000",
+                    "index": 2,
+                    "models": [
+                        {
+                            "modelId": "1000",
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "name": "Element: 0x185A"
+                }
+            ],
+            "excluded": false,
+            "UUID": "aacc34b4-72e7-1a32-0000-000000000000"
+        },
+        {
+            "security": "insecure",
+            "pid": "1032",
+            "configComplete": false,
+            "unicastAddress": "1465",
+            "appKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "cid": "0C03",
+            "vid": "0200",
+            "excluded": false,
+            "name": "AERIVA Wireless Tuning Dimming~1032~C09C",
+            "features": {
+                "lowPower": 2,
+                "proxy": 1,
+                "friend": 2,
+                "relay": 1
+            },
+            "deviceKey": "9D4872A530B09FE5085A20F683F708D6",
+            "UUID": "aacc34b4-72e7-5aee-0000-000000000000",
+            "elements": [
+                {
+                    "name": "Element: 0x1465",
+                    "models": [
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "0000"
+                        },
+                        {
+                            "modelId": "1302",
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1305",
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "modelId": "0C032001",
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "index": 0,
+                    "location": "0000"
+                }
+            ],
+            "defaultTTL": 20,
+            "netKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "crpl": "0258"
+        },
+        {
+            "configComplete": false,
+            "cid": "0C03",
+            "deviceKey": "840B6EE3AA12DEA06FD98FB4B3C286BE",
+            "defaultTTL": 20,
+            "elements": [
+                {
+                    "models": [
+                        {
+                            "modelId": "0000",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1304",
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1306"
+                        },
+                        {
+                            "modelId": "1303",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C",
+                                "C56C"
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "0C032001",
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "name": "Element: 0x0AA6",
+                    "location": "0000",
+                    "index": 0
+                }
+            ],
+            "crpl": "01F4",
+            "features": {
+                "proxy": 1,
+                "friend": 2,
+                "relay": 1,
+                "lowPower": 2
+            },
+            "appKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ],
+            "netKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ],
+            "unicastAddress": "0AA6",
+            "pid": "1015",
+            "name": "LYTIVA CCT~1015~C09C",
+            "vid": "0212",
+            "security": "insecure",
+            "UUID": "bbcc84f7-0316-4e8a-0000-000000000000",
+            "excluded": false
+        },
+        {
+            "elements": [
+                {
+                    "location": "0000",
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "0000"
+                        },
+                        {
+                            "modelId": "1304",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "modelId": "1306",
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "modelId": "1303",
+                            "subscribe": [
+                                "C09C",
+                                "C56C"
+                            ],
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "0C032001",
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "index": 0,
+                    "name": "Element: 0x02B0"
+                }
+            ],
+            "name": "LYTIVA CCT~1015~C09C",
+            "deviceKey": "136DB7EB3EF0067538F6E01C4E610220",
+            "defaultTTL": 20,
+            "UUID": "bbcc84f7-0316-4eae-0000-000000000000",
+            "unicastAddress": "02B0",
+            "crpl": "01F4",
+            "cid": "0C03",
+            "netKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "configComplete": false,
+            "features": {
+                "lowPower": 2,
+                "relay": 1,
+                "friend": 2,
+                "proxy": 1
+            },
+            "pid": "1015",
+            "vid": "0212",
+            "appKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ],
+            "security": "insecure",
+            "excluded": false
+        },
+        {
+            "configComplete": false,
+            "deviceKey": "7538C453D429B7314A52282828A0DBC2",
+            "pid": "1015",
+            "UUID": "bbcc84f7-0316-4fea-0000-000000000000",
+            "excluded": false,
+            "features": {
+                "lowPower": 2,
+                "friend": 2,
+                "proxy": 1,
+                "relay": 1
+            },
+            "crpl": "01F4",
+            "vid": "0212",
+            "appKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "security": "insecure",
+            "netKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "unicastAddress": "1012",
+            "defaultTTL": 20,
+            "elements": [
+                {
+                    "models": [
+                        {
+                            "modelId": "0000",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "modelId": "1304",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1306",
+                            "bind": [
+                                0
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C",
+                                "C56C"
+                            ],
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1303"
+                        },
+                        {
+                            "modelId": "0C032001",
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "name": "Element: 0x1012",
+                    "location": "0000",
+                    "index": 0
+                }
+            ],
+            "name": "LYTIVA CCT~1015~C09C",
+            "cid": "0C03"
+        },
+        {
+            "configComplete": false,
+            "cid": "0C03",
+            "unicastAddress": "0B12",
+            "name": "LYTIVA RGB~1014~C09C",
+            "UUID": "bbcca076-4e53-37b6-0000-000000000000",
+            "netKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ],
+            "elements": [
+                {
+                    "location": "0000",
+                    "index": 0,
+                    "name": "Element: 0x0B12",
+                    "models": [
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "0000"
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "130A"
+                        },
+                        {
+                            "modelId": "130B",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1308"
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1307",
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "0C032001",
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "defaultTTL": 20,
+            "deviceKey": "8FB13E270A9556B775C1459A04B82552",
+            "security": "insecure",
+            "features": {
+                "proxy": 1,
+                "friend": 2,
+                "lowPower": 2,
+                "relay": 1
+            },
+            "vid": "0200",
+            "appKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "pid": "1014",
+            "excluded": false,
+            "crpl": "01F4"
+        },
+        {
+            "pid": "1045",
+            "configComplete": false,
+            "cid": "0C03",
+            "appKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "unicastAddress": "06CE",
+            "excluded": false,
+            "vid": "0212",
+            "name": "LYTIVA CCT~1045~C09C",
+            "elements": [
+                {
+                    "name": "Element: 0x06CE",
+                    "location": "0000",
+                    "models": [
+                        {
+                            "modelId": "0000",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1304"
+                        },
+                        {
+                            "modelId": "1306",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C",
+                                "C56C"
+                            ],
+                            "modelId": "1303"
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "0C032001"
+                        }
+                    ],
+                    "index": 0
+                }
+            ],
+            "deviceKey": "5BF18A41333719055D700389C7D9C22A",
+            "crpl": "01F4",
+            "features": {
+                "relay": 1,
+                "friend": 2,
+                "proxy": 1,
+                "lowPower": 2
+            },
+            "UUID": "bbcca076-4e53-5e2e-0000-000000000000",
+            "security": "insecure",
+            "defaultTTL": 20,
+            "netKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "index": 0,
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "0000"
+                        },
+                        {
+                            "modelId": "1001",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1003",
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        },
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1000"
+                        }
+                    ],
+                    "location": "0000",
+                    "name": "Element: 0x1087"
+                },
+                {
+                    "name": "Element: 0x1088",
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1000"
+                        }
+                    ],
+                    "location": "0000",
+                    "index": 1
+                },
+                {
+                    "models": [
+                        {
+                            "modelId": "1000",
+                            "bind": [
+                                0
+                            ],
+                            "subscribe": [
+                                "C09C",
+                                "CC81"
+                            ]
+                        }
+                    ],
+                    "name": "Element: 0x1089",
+                    "location": "0000",
+                    "index": 2
+                },
+                {
+                    "index": 3,
+                    "location": "0000",
+                    "name": "Element: 0x108A",
+                    "models": [
+                        {
+                            "bind": [
+                                0
+                            ],
+                            "modelId": "1000",
+                            "subscribe": [
+                                "C09C"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "models": [
+                        {
+                            "subscribe": [
+                                "C09C"
+                            ],
+                            "modelId": "1000",
+                            "bind": [
+                                0
+                            ]
+                        }
+                    ],
+                    "name": "Element: 0x108B",
+                    "location": "0000",
+                    "index": 4
+                }
+            ],
+            "crpl": "0258",
+            "unicastAddress": "1087",
+            "pid": "1021",
+            "defaultTTL": 20,
+            "UUID": "eccca076-4e4e-f3a2-0000-000000000000",
+            "cid": "0C03",
+            "features": {
+                "relay": 1,
+                "lowPower": 2,
+                "friend": 2,
+                "proxy": 1
+            },
+            "security": "insecure",
+            "netKeys": [
+                {
+                    "updated": false,
+                    "index": 0
+                }
+            ],
+            "vid": "0002",
+            "excluded": false,
+            "configComplete": false,
+            "name": "ZECK 4 Touch~1021~C09C",
+            "appKeys": [
+                {
+                    "index": 0,
+                    "updated": false
+                }
+            ],
+            "deviceKey": "6999C7A316DF10C12EDBBF7034956536"
+        }
+    ],
+    "groups": [
+        {
+            "name": "Living Room~Living Room",
+            "address": "C09C",
+            "parentAddress": "0000"
+        },
+        {
+            "name": "Profile~light",
+            "parentAddress": "C09C",
+            "address": "C56C"
+        },
+        {
+            "parentAddress": "C09C",
+            "address": "CC81",
+            "name": "new1~switch"
+        }
+    ],
+    "scenes": [],
+    "presets": [],
+    "manage_presets": [],
+    "networkExclusions": []
+}

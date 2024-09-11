@@ -1,0 +1,15 @@
+{
+            "platform": "Rako_Hub-Dimmer",
+            "IP-Address-of-Rako-Hub": "192.168.1.78",
+            "IP-Address-of-Manger-Hub": "192.168.1.36",
+            "Color": [
+                {
+                    "Name": "RGB",
+                    "Room": "17",
+                    "R-Channel": "1",
+                    "G-Channel": "3",
+                    "B-Channel": "2",
+                    "W-Channel": "4"
+                }
+            ]
+        }

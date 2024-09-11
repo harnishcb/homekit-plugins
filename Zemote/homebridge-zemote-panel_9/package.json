@@ -1,0 +1,55 @@
+{
+  "_from": "homebridge-zemote-panel_9",
+  "_id": "homebridge-zemote-panel_9@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-jRD+e50bDlSYDR4CTHQMUaEnsXc=",
+  "_location": "/homebridge-zemote-panel_9",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "homebridge-zemote-panel_9",
+    "name": "homebridge-zemote-panel_9",
+    "escapedName": "homebridge-zemote-panel_9",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-zemote-panel_9/-/homebridge-zemote-panel_9-1.0.0.tgz",
+  "_shasum": "8d10fe7b9d1b0e54980d1e024c740c51a127b177",
+  "_spec": "homebridge-zemote-panel_9",
+  "_where": "C:\\Users\\Shreyas",
+  "author": {
+    "name": "nitaybz"
+  },
+  "bugs": {
+    "url": "https://github.com/nitaybz/homebridge-zemote-panel_9/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A Homebridge plugin to control blinds trough UDP packets - inspired by Homebridge-NooLite-HTTP-Blinds by JenRus",
+  "engines": {
+    "homebridge": ">=0.2.0",
+    "node": ">=0.12.0"
+  },
+  "homepage": "https://github.com/nitaybz/homebridge-zemote-panel_9#readme",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge-blinds",
+    "homebridge",
+    "blinds",
+    "udp"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "homebridge-zemote-panel_9",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitaybz/homebridge-zemote-panel_9.git"
+  },
+  "version": "1.0.0"
+}
